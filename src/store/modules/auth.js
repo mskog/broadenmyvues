@@ -16,7 +16,12 @@ export default {
 
   actions: {
     setCredentials(context, { username, password }) {
-      context.commit("setCredentials", { username, password });
+      return new Promise(resolve => {
+        context.commit("setCredentials", { username, password });
+        const auth = btoa(username + ":" + password);
+        Vue.http.headers.common["Authorization"] = "Basic " + auth;
+        resolve();
+      });
     }
   }
 };

@@ -14,7 +14,7 @@
       </ul>
     </div>
     <MoviesList :movies="movies"/>
-    <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+    <infinite-loading v-if="movies.length > 0" @infinite="infiniteHandler"></infinite-loading>
   </div>
 </template>
 
