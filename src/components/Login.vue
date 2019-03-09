@@ -3,15 +3,15 @@
     <div class="box">
       <b-field
         label="Username"
-        :type="{'is-danger': !valid}"
-        :message="{'Invalid username': !valid}"
+        :type="{ 'is-danger': !valid }"
+        :message="{ 'Invalid username': !valid }"
       >
         <b-input v-model="username"></b-input>
       </b-field>
       <b-field
         label="Password"
-        :type="{'is-danger': !valid}"
-        :message="{'Invalid password': !valid}"
+        :type="{ 'is-danger': !valid }"
+        :message="{ 'Invalid password': !valid }"
       >
         <b-input type="password" v-model="password"></b-input>
       </b-field>

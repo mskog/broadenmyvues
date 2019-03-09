@@ -1,7 +1,3 @@
 <template>
-  <div>sdfdsf</div>
+  <div>Episodes</div>
 </template>
-
-<script>
-export default {};
-</script>

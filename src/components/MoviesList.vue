@@ -2,7 +2,7 @@
   <div class="movies">
     <ul>
       <li v-for="movie in movies" v-bind:key="movie.id">
-        <Movie :movie="movie"></Movie>
+        <Movie :movie="movie">{{ movies }}</Movie>
       </li>
     </ul>
   </div>

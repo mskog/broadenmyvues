@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <router-view></router-view>
-        <Bottombar/>
+        <Bottombar />
       </div>
     </section>
   </div>

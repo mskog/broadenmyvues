@@ -28,7 +28,13 @@ export default {
 
   mutations: {
     refresh(state, { movies, category }) {
-      Vue.set(state, "items", categorizedMovies(movies, category));
+      const itemsWithoutSelectedCategory = state.items.filter(
+        item => item.category !== category
+      );
+      const newItems = categorizedMovies(movies, category);
+      // console.log(itemsWithoutSelectedCategory);
+      // console.log(newItems);
+      Vue.set(state, "items", itemsWithoutSelectedCategory.concat(newItems));
     },
 
     loadMore(state, { movies, category }) {

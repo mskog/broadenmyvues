@@ -1,25 +1,29 @@
 <template>
   <div>
+    <h1 class="title">Movies</h1>
     <div class="tabs is-fullwidth">
       <ul>
-        <li v-bind:class="{'is-active': activeTab('watched')}">
+        <li v-bind:class="{ 'is-active': activeTab('watched') }">
           <router-link to="/movies/watched">Watched</router-link>
         </li>
-        <li v-bind:class="{'is-active': activeTab('downloads')}">
+        <li v-bind:class="{ 'is-active': activeTab('downloads') }">
           <router-link to="/movies/downloads">Downloads</router-link>
         </li>
-        <li v-bind:class="{'is-active': activeTab('waitlist')}">
+        <li v-bind:class="{ 'is-active': activeTab('waitlist') }">
           <router-link to="/movies/waitlist">Waitlist</router-link>
         </li>
       </ul>
     </div>
-    <MoviesList :movies="movies"/>
-    <infinite-loading v-if="movies.length > 0" @infinite="infiniteHandler"></infinite-loading>
+    <MoviesList :movies="movies" />
+    <infinite-loading
+      v-if="movies.length > 0"
+      @infinite="infiniteHandler"
+    ></infinite-loading>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 import MoviesList from "./MoviesList";
 
 export default {
@@ -35,8 +39,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters("movies", ["itemsByCategory"]),
+
     movies() {
-      return this.$store.state.movies.items;
+      return this.itemsByCategory(this.category);
     }
   },
 
@@ -74,6 +80,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  .title
+    letter-spacing: 1.5px
+  .tabs
+    margin-bottom: 0 !important
   li.is-active
     font-weight: bolder
 </style>
