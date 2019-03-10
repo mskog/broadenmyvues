@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <section class="section">
-      <div class="container">
-        <router-view></router-view>
-        <Bottombar />
-      </div>
-    </section>
+    <keep-alive include="movies">
+      <router-view></router-view>
+    </keep-alive>
+    <!-- <Bottombar /> -->
   </div>
 </template>
 

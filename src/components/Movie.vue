@@ -2,11 +2,15 @@
   <div class="movie columns is-mobile">
     <div class="column is-one-third">
       <lazy-component @show="loadPoster({ tmdb_id: movie.tmdb_id })">
-        <img :src="getPoster(movie.tmdb_id)" class="poster" />
+        <router-link :to="`/movies/details/${movie.id}`">
+          <img :src="getPoster(movie.tmdb_id)" class="poster" />
+        </router-link>
       </lazy-component>
     </div>
     <div class="column">
-      <h2 class="is-size-5 title">{{ movie.title }}</h2>
+      <router-link :to="`/movies/details/${movie.id}`">
+        <h2 class="is-size-5 title">{{ movie.title }}</h2>
+      </router-link>
       <h2 class="subtitle ratings">
         <Ratings :rating="movie.rt_critics_rating" />
       </h2>
@@ -49,6 +53,7 @@ export default {
     position: relative
     padding: 7.5px
     height: 8em
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
 
   img.poster
     bottom: 1em

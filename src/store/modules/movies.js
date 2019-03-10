@@ -16,6 +16,9 @@ export default {
   },
 
   getters: {
+    getMovie: state => id => {
+      return state.items.find(item => item.id == id);
+    },
     getPoster: state => tmdb_id => {
       return state.posters[tmdb_id];
     },
@@ -32,8 +35,6 @@ export default {
         item => item.category !== category
       );
       const newItems = categorizedMovies(movies, category);
-      // console.log(itemsWithoutSelectedCategory);
-      // console.log(newItems);
       Vue.set(state, "items", itemsWithoutSelectedCategory.concat(newItems));
     },
 

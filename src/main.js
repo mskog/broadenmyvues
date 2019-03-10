@@ -9,7 +9,12 @@ import routes from "./routes";
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-const router = new VueRouter({ routes });
+const router = new VueRouter({
+  routes,
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  }
+});
 router.beforeEach((to, from, next) => {
   if (to.name != "login" && store.state.auth.username === undefined) {
     next("/login");
