@@ -119,5 +119,6 @@ export default {
   .details
     padding-left: 2em
     padding-right: 2em
+    padding-bottom: 50px
 </style>
 
