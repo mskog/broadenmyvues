@@ -2,7 +2,7 @@
   <div class="movies">
     <ul>
       <li v-for="movie in movies" v-bind:key="movie.id">
-        <Movie :movie="movie">{{ movies }}</Movie>
+        <Movie :movie="movie" :category="category">{{ movies }}</Movie>
       </li>
     </ul>
   </div>
@@ -12,7 +12,7 @@
 import Movie from "./Movie.vue";
 
 export default {
-  props: ["movies"],
+  props: ["movies", "category"],
   components: {
     Movie
   }

@@ -10,6 +10,9 @@
         </h1>
       </div>
     </div>
+    <div class="genres">
+      {{ movie.genres }}
+    </div>
     <hr />
     <div class="bottom">
       <div class="level is-mobile">
@@ -20,9 +23,11 @@
           </div>
         </div>
 
-        <div class="level-item has-text-centered">
+        <div class="level-item khas-text-centered">
           <div>
-            <p class="title is-size-4">{{ runtimeFormatted }}</p>
+            <p class="title is-size-4">
+              {{ movie.runtime }}
+            </p>
             <p class="heading is-size-6">Runtime</p>
           </div>
         </div>
@@ -35,16 +40,27 @@
       </div>
     </div>
     <hr />
-    <div class="details">
+    <div class="synopsis">
       <h2 class="title is-size-4">Synopsis</h2>
       <p>{{ movie.overview }}</p>
+    </div>
+    <div v-if="movie.best_release && !downloaded" class="synopsis">
+      <h2 class="title is-size-4">Download</h2>
+      <p class="has-text-weight-bold">
+        {{ movie.best_release.joined_attributes }}
+      </p>
+      <span class="is-size-6"
+        >Will download
+        <span class="has-text-weight-bold">{{
+          movie.download_at | timeAgo
+        }}</span>
+      </span>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-
 export default {
   props: ["id"],
   computed: {
@@ -65,11 +81,8 @@ export default {
     releaseYear() {
       return new Date(this.movie.release_date).getFullYear();
     },
-    runtimeFormatted() {
-      const runtime = parseInt(this.movie.runtime);
-      const hours = Math.floor(runtime / 60);
-      const minutes = runtime % 60;
-      return `${hours}h ${minutes}m`;
+    downloaded() {
+      return Date.parse(this.movie.download_at) <= Date.now();
     },
     ...mapGetters("movies", ["getMovie, getPoster"])
   },
@@ -82,6 +95,13 @@ export default {
     return {
       movie: {}
     };
+  },
+  filters: {
+    capitalize(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
   },
   created() {
     this.movie = this.$store.getters["movies/getMovie"](this.id);
@@ -112,11 +132,15 @@ export default {
       top: 20px
       left: 20px
 
+  .genres
+    margin-left: 2em
+    margin-right: 2em
+
   .bottom
     padding-left: 2em
     padding-right: 2em
 
-  .details
+  .synopsis
     padding-left: 2em
     padding-right: 2em
     padding-bottom: 50px

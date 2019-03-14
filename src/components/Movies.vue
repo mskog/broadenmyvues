@@ -15,7 +15,7 @@
           </li>
         </ul>
       </div>
-      <MoviesList :movies="movies" />
+      <MoviesList :movies="movies" :category="category" />
       <infinite-loading
         v-if="movies.length > 0"
         @infinite="infiniteHandler"

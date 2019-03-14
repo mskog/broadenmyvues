@@ -1,5 +1,12 @@
 <template>
   <div class="movie columns is-mobile">
+    <b-icon
+      v-if="movie.download_at && category === 'waitlist'"
+      class="download"
+      pack="fa"
+      icon="download"
+      size="is-small"
+    ></b-icon>
     <div class="column is-one-third">
       <lazy-component @show="loadPoster({ tmdb_id: movie.tmdb_id })">
         <router-link :to="`/movies/details/${movie.id}`">
@@ -15,8 +22,18 @@
         <Ratings :rating="movie.rt_critics_rating" />
       </h2>
       <div class="is-size-7">
-        <b-icon pack="fa" icon="clock" size="is-small"></b-icon>
-        <span>{{ movie.runtime }}</span>
+        <div class="level is-mobile">
+          <div class="level-left">
+            <div class="level-item">
+              <b-icon pack="fa" icon="calendar" size="is-small"></b-icon>
+              <span>{{ new Date(this.movie.release_date).getFullYear() }}</span>
+            </div>
+            <div class="level-item">
+              <b-icon pack="fa" icon="clock" size="is-small"></b-icon>
+              <span>{{ movie.runtime }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -27,7 +44,7 @@ import { mapGetters, mapActions } from "vuex";
 import Ratings from "./Ratings.vue";
 
 export default {
-  props: ["movie"],
+  props: ["movie", "category"],
   components: {
     Ratings
   },
@@ -37,6 +54,9 @@ export default {
         return "";
       }
       return this.movie.overview.substring(0, 90) + "...";
+    },
+    downloaded() {
+      return Date.parse(this.movie.download_at) <= Date.now();
     },
     ...mapGetters("movies", ["getPoster"])
   },
@@ -60,6 +80,11 @@ export default {
     height: 9em
     position: absolute
     border-radius: 3px
+
+  .download
+    position: absolute
+    right: 15px
+    top: 15px
 
   h2
     letter-spacing: 1px
