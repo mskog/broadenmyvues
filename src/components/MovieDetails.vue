@@ -13,6 +13,10 @@
     <div class="genres">
       {{ movie.genres }}
     </div>
+    <div class="language">
+      <b-icon pack="fas" icon="flag" size="is-small"></b-icon>
+      {{ movie.language }}
+    </div>
     <hr />
     <div class="bottom">
       <div class="level is-mobile">
@@ -133,6 +137,10 @@ export default {
       left: 20px
 
   .genres
+    margin-left: 2em
+    margin-right: 2em
+
+  .language
     margin-left: 2em
     margin-right: 2em
 
