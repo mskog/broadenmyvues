@@ -36,9 +36,13 @@
           </div>
         </div>
         <div class="level-item has-text-centered">
-          <div>
+          <div v-if="!watched">
             <p class="title is-size-4">{{ rtCriticsRatingFormatted }}</p>
             <p class="heading is-size-6">Rotten</p>
+          </div>
+          <div v-else>
+            <p class="title is-size-4">{{ movie.personal_rating }} / 10</p>
+            <p class="heading is-size-6">Rating</p>
           </div>
         </div>
       </div>
@@ -87,6 +91,9 @@ export default {
     },
     downloaded() {
       return Date.parse(this.movie.download_at) <= Date.now();
+    },
+    watched() {
+      return this.movie.watched_at !== "-";
     },
     ...mapGetters("movies", ["getMovie, getPoster"])
   },
