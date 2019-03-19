@@ -6,6 +6,8 @@ import "./registerServiceWorker";
 import store from "./store";
 import routes from "./routes";
 
+require("./filters");
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
@@ -41,23 +43,6 @@ Vue.use(Buefy);
 
 import InfiniteLoading from "vue-infinite-loading";
 Vue.use(InfiniteLoading, { system: { throttleLimit: 500 } });
-
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
-TimeAgo.addLocale(en);
-
-const timeAgo = new TimeAgo("en-US");
-const moment = require("moment");
-
-Vue.filter("runtimeFormatted", runtime => {
-  const hours = Math.floor(runtime / 60);
-  const minutes = runtime % 60;
-  return `${hours}h ${minutes}m`;
-});
-
-Vue.filter("timeAgo", date => {
-  return timeAgo.format(moment(date).toDate());
-});
 
 new Vue({
   render: h => h(App),
