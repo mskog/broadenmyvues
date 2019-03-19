@@ -130,11 +130,12 @@ export default {
 
 <style lang="sass" scoped>
   @import '../assets/css/style.sass'
+  .moviedetails > *:not(.top)
+    margin-left: 2em
+    margin-right: 2em
 
   hr
     border-top: 2px solid $grey-darker
-    margin-left: 2em
-    margin-right: 2em
   .top
     position: relative
     height: 66vh
@@ -160,21 +161,7 @@ export default {
         color: $text
         text-decoration: inherit
 
-  .genres
-    margin-left: 2em
-    margin-right: 2em
-
-  .language
-    margin-left: 2em
-    margin-right: 2em
-
-  .bottom
-    padding-left: 2em
-    padding-right: 2em
-
   .synopsis
-    padding-left: 2em
-    padding-right: 2em
     padding-bottom: 50px
 </style>
 
