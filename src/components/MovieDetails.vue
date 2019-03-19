@@ -4,6 +4,11 @@
       <div class="backbutton" @click="goBack">
         <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
       </div>
+      <div class="imdbLink">
+        <a :href="imdbUrl">
+          <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
+        </a>
+      </div>
       <div class="movietitle">
         <h1 class="title">
           {{ movie.title }}
@@ -95,6 +100,9 @@ export default {
     watched() {
       return this.movie.watched_at !== "-";
     },
+    imdbUrl() {
+      return `https://www.imdb.com/title/${this.movie.imdb_id}`;
+    },
     ...mapGetters("movies", ["getMovie, getPoster"])
   },
   methods: {
@@ -142,6 +150,15 @@ export default {
       position: fixed
       top: 20px
       left: 20px
+
+    .imdbLink
+      position: fixed
+      top: 20px
+      right: 20px
+
+      a
+        color: $text
+        text-decoration: inherit
 
   .genres
     margin-left: 2em
