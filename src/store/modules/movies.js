@@ -46,6 +46,16 @@ export default {
       );
     },
 
+    setAsDownloaded(state, { id }) {
+      const index = state.items.findIndex(item => item.id == id);
+      Vue.set(state.items[index], "category", "downloads");
+    },
+
+    destroy(state, { id }) {
+      const index = state.items.findIndex(item => item.id == id);
+      Vue.delete(state.items, index);
+    },
+
     loadPoster(state, { tmdb_id, url }) {
       Vue.set(state.posters, tmdb_id, url);
     }
@@ -85,6 +95,16 @@ export default {
         .then(response => {
           context.commit("refresh", { category, movies: response.body });
         });
+    },
+    force(context, id) {
+      context.commit("setAsDownloaded", { id });
+      Vue.http.patch(
+        `https://broad.mskog.com/api/v1/movie_waitlists/${id}/force`
+      );
+    },
+    destroy(context, id) {
+      context.commit("destroy", { id });
+      Vue.http.delete(`https://broad.mskog.com/api/v1/movie_waitlists/${id}`);
     }
   }
 };

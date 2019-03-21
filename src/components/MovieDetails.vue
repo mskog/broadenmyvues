@@ -53,6 +53,18 @@
       </div>
     </div>
     <hr />
+    <div class="columns">
+      <div v-if="movie.best_release" class="column">
+        <button @click="force" class="button is-fullwidth is-primary">
+          Force
+        </button>
+      </div>
+      <div class="column">
+        <button @click="destroy" class="button is-fullwidth is-danger">
+          Remove
+        </button>
+      </div>
+    </div>
     <div class="synopsis">
       <h2 class="title is-size-4">Synopsis</h2>
       <p>{{ movie.overview }}</p>
@@ -73,7 +85,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["id"],
   computed: {
@@ -106,6 +118,14 @@ export default {
     ...mapGetters("movies", ["getMovie, getPoster"])
   },
   methods: {
+    force() {
+      this.$store.dispatch("movies/force", this.movie.id);
+      this.$router.push("/movies/waitlist");
+    },
+    destroy() {
+      this.$store.dispatch("movies/destroy", this.movie.id);
+      this.$router.push("/movies/waitlist");
+    },
     goBack() {
       this.$router.go(-1);
     }
