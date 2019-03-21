@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <div class="level-item khas-text-centered">
+        <div class="level-item has-text-centered">
           <div>
             <p class="title is-size-4">
               {{ movie.runtime }}
@@ -53,7 +53,7 @@
       </div>
     </div>
     <hr />
-    <div class="columns">
+    <div v-if="!downloaded" class="columns">
       <div v-if="movie.best_release" class="column">
         <button @click="force" class="button is-fullwidth is-primary">
           Force
