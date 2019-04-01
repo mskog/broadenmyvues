@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "buefy": "^0.7.2",
+    "bulma-timeline": "^3.0.3",
     "javascript-time-ago": "^2.0.1",
     "moment": "^2.24.0",
     "register-service-worker": "^1.5.2",
