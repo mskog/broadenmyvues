@@ -10,7 +10,7 @@
           <router-link to="/">
             <span v-bind:class="{ active: currentRouteName() === 'movies' }">
               <b-icon pack="fas" icon="film" size="is-medium" />
-              <div class="is-size-7">Movies</div>
+              <div class="is-size-6">Movies</div>
             </span>
           </router-link>
         </span>
@@ -18,9 +18,27 @@
       <div class="navbar-item">
         <span class="has-text-centered">
           <router-link to="/episodes">
-            <span v-bind:class="{ active: currentRouteName() === 'episodes' }">
+            <span
+              v-bind:class="{
+                active: currentRouteName() === 'episodes'
+              }"
+            >
               <b-icon pack="fas" icon="tv" size="is-medium" />
-              <div class="is-size-7">Episodes</div>
+              <div class="is-size-6">Episodes</div>
+            </span>
+          </router-link>
+        </span>
+      </div>
+      <div class="navbar-item">
+        <span class="has-text-centered">
+          <router-link to="/tv_shows_calendar">
+            <span
+              v-bind:class="{
+                active: currentRouteName() === 'tv_shows_calendar'
+              }"
+            >
+              <b-icon pack="fas" icon="calendar" size="is-medium" />
+              <div class="is-size-6">Calendar</div>
             </span>
           </router-link>
         </span>

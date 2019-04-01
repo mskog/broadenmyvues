@@ -3,7 +3,7 @@
     <keep-alive include="movies">
       <router-view></router-view>
     </keep-alive>
-    <!-- <Bottombar /> -->
+    <Bottombar />
   </div>
 </template>
 
