@@ -58,10 +58,10 @@ export default {
     downloaded() {
       return Date.parse(this.movie.download_at) <= Date.now();
     },
-    ...mapGetters("movies", ["getPoster"])
+    ...mapGetters("posters", ["getPoster"])
   },
   methods: {
-    ...mapActions("movies", ["loadPoster"])
+    ...mapActions("posters", ["loadPoster"])
   }
 };
 </script>

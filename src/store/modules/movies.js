@@ -11,16 +11,12 @@ export default {
   namespaced: true,
   state: {
     items: [],
-    posters: {},
     per_page: 10
   },
 
   getters: {
     getMovie: state => id => {
       return state.items.find(item => item.id == id);
-    },
-    getPoster: state => tmdb_id => {
-      return state.posters[tmdb_id];
     },
     itemsByCategory: state => category => {
       return state.items.filter(movie => {
@@ -54,25 +50,10 @@ export default {
     destroy(state, { id }) {
       const index = state.items.findIndex(item => item.id == id);
       Vue.delete(state.items, index);
-    },
-
-    loadPoster(state, { tmdb_id, url }) {
-      Vue.set(state.posters, tmdb_id, url);
     }
   },
 
   actions: {
-    loadPoster(context, { tmdb_id }) {
-      if (context.state.posters[tmdb_id]) {
-        return;
-      }
-      Vue.http
-        .get(`https://broad.mskog.com/api/v1/posters/${tmdb_id}`)
-        .then(response => {
-          context.commit("loadPoster", { tmdb_id, url: response.body.url });
-        });
-    },
-
     loadMore(context, category) {
       const page =
         context.getters.itemsByCategory(category).length /

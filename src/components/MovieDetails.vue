@@ -92,7 +92,7 @@ export default {
     backgroundStyle() {
       return {
         "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${this.$store.getters[
-          "movies/getPoster"
+          "posters/getPoster"
         ](this.movie.tmdb_id)}`
       };
     },
