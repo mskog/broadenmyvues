@@ -93,7 +93,7 @@ export default {
       return {
         "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${this.$store.getters[
           "posters/getPoster"
-        ](this.movie.tmdb_id)}`
+        ]("movie", this.movie.tmdb_id)}`
       };
     },
     rtCriticsRatingFormatted() {

@@ -1,38 +1,32 @@
 <template>
-  <div>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">Calendar</h1>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div v-for="(value, date, index) in calendarItems" v-bind:key="index">
-          <header class="timeline-header">
-            <span class="tag is-medium is-primary">
-              {{ date }}
-            </span>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Calendar</h1>
+      <div class="timeline is-centered">
+        <template v-for="(value, date, index) in calendarItems">
+          <header :key="index" class="timeline-header">
+            <span class="tag is-large is-primary"> {{ date }} </span>
           </header>
-          <div class="timeline">
-            <div
-              v-for="(item, index) in value"
-              v-bind:key="index"
-              class="timeline-item"
-            >
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p>{{ item.show.title }}</p>
-              </div>
+          <div
+            v-for="(item, index) in value"
+            v-bind:key="index"
+            class="timeline-item"
+          >
+            <div class="timeline-marker"></div>
+            <div class="timeline-content" style="width: 100%">
+              <figure class="poster image">
+                <img :src="getPoster(item.show.ids.tmdb)" />
+              </figure>
             </div>
           </div>
-        </div>
+        </template>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   computed: {
     calendarItems() {
@@ -40,7 +34,17 @@ export default {
     }
   },
   methods: {
-    ...mapActions("tv_shows_calendar", ["refresh"])
+    ...mapActions("tv_shows_calendar", ["refresh"]),
+    ...mapActions("posters", ["loadPoster"]),
+
+    getPoster(tmdb_id) {
+      const poster = this.$store.state.posters.tv_show[tmdb_id];
+      if (poster !== undefined) {
+        return poster;
+      } else {
+        this.loadPoster({ tmdb_id, type: "tv_show" });
+      }
+    }
   },
   created() {
     this.refresh();

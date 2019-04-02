@@ -8,9 +8,11 @@
       size="is-small"
     ></b-icon>
     <div class="column is-one-third">
-      <lazy-component @show="loadPoster({ tmdb_id: movie.tmdb_id })">
+      <lazy-component
+        @show="loadPoster({ type: 'movie', tmdb_id: movie.tmdb_id })"
+      >
         <router-link :to="`/movies/details/${movie.id}`">
-          <img :src="getPoster(movie.tmdb_id)" class="poster" />
+          <img :src="getPoster('movie', movie.tmdb_id)" class="poster" />
         </router-link>
       </lazy-component>
     </div>
