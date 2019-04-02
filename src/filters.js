@@ -21,3 +21,14 @@ Vue.filter("capitalize", value => {
   value = value.toString();
   return value.charAt(0).toUpperCase() + value.slice(1);
 });
+
+Vue.filter("futureDate", value => {
+  const dateA = moment(new Date());
+  const dateB = moment(value);
+  const diff = dateB.diff(dateA, "days");
+  if (diff <= 7) {
+    return dateB.format("dddd");
+  } else {
+    return dateB.format("YYYY-MM-DD");
+  }
+});

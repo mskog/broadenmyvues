@@ -5,7 +5,9 @@
       <div class="timeline is-centered">
         <template v-for="(value, date, index) in calendarItems">
           <header :key="index" class="timeline-header">
-            <span class="tag is-large is-primary"> {{ date }} </span>
+            <span class="tag is-large is-primary">
+              {{ date | futureDate }}
+            </span>
           </header>
           <div
             v-for="(item, index) in value"
