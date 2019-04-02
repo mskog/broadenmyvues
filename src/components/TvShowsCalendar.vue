@@ -15,13 +15,13 @@
           </header>
           <div class="timeline">
             <div
-              v-for="(episode, index) in value"
+              v-for="(item, index) in value"
               v-bind:key="index"
               class="timeline-item"
             >
               <div class="timeline-marker"></div>
               <div class="timeline-content">
-                <p>{{ episode.name }}</p>
+                <p>{{ item.show.title }}</p>
               </div>
             </div>
           </div>
