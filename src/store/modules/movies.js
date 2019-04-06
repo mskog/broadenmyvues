@@ -16,7 +16,12 @@ export default {
 
   getters: {
     getMovie: state => id => {
-      return state.items.find(item => item.id == id);
+      const item = state.items.find(item => item.id == id);
+      if (item) {
+        return item;
+      } else {
+        return {};
+      }
     },
     itemsByCategory: state => category => {
       return state.items.filter(movie => {
@@ -32,6 +37,15 @@ export default {
       );
       const newItems = categorizedMovies(movies, category);
       Vue.set(state, "items", itemsWithoutSelectedCategory.concat(newItems));
+    },
+
+    refreshSingle(state, { movie }) {
+      const index = state.items.findIndex(item => item.id == movie.id);
+      if (index == -1) {
+        Vue.set(state, "items", state.items.concat(movie));
+      } else {
+        Vue.set(state.items, index, movie);
+      }
     },
 
     loadMore(state, { movies, category }) {
@@ -75,6 +89,13 @@ export default {
         })
         .then(response => {
           context.commit("refresh", { category, movies: response.body });
+        });
+    },
+    refreshSingle(context, id) {
+      Vue.http
+        .get(`https://broad.mskog.com/api/v1/movies/${id}.json`)
+        .then(response => {
+          context.commit("refreshSingle", { movie: response.body });
         });
     },
     force(context, id) {

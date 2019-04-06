@@ -9,7 +9,12 @@ export default {
 
   getters: {
     getPoster: state => (type, tmdb_id) => {
-      return state[type][tmdb_id];
+      const poster = state[type][tmdb_id];
+      if (poster) {
+        return poster;
+      } else {
+        return "";
+      }
     }
   },
 

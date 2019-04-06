@@ -6,6 +6,12 @@ export default {
     data: {}
   },
 
+  getters: {
+    hasData: state => {
+      return Object.keys(state.data).length === 0;
+    }
+  },
+
   mutations: {
     refresh(state, { data }) {
       Vue.set(state, "data", data);
