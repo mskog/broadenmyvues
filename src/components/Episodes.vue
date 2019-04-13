@@ -1,14 +1,21 @@
 <template>
-  <section class="section">
-    <div class="container">
+  <div>
+    <section
+      class="section is-marginless"
+      style="padding-bottom: 0; padding-top: 15px"
+    >
       <h1 class="title">Episodes</h1>
-      <EpisodesList :episodes="episodes" />
-      <infinite-loading
-        v-if="episodes.length > 0"
-        @infinite="infiniteHandler"
-      ></infinite-loading>
-    </div>
-  </section>
+    </section>
+    <section class="section is-paddingless">
+      <div class="container">
+        <EpisodesList :episodes="episodes" />
+        <infinite-loading
+          v-if="episodes.length > 0"
+          @infinite="infiniteHandler"
+        ></infinite-loading>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
