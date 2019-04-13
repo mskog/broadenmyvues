@@ -3,7 +3,6 @@
     <b-loading :active="loading" :is-full-page="true"></b-loading>
     <section class="section">
       <div class="container">
-        <h1 class="title">Calendar</h1>
         <div class="timeline is-centered">
           <template v-for="(value, date, index) in calendarItems">
             <header :key="index" class="timeline-header">

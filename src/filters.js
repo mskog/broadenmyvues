@@ -32,3 +32,9 @@ Vue.filter("futureDate", value => {
     return dateB.format("YYYY-MM-DD");
   }
 });
+
+Vue.filter("seasonEpisode", episode => {
+  const paddedSeason = episode.season.toString().padStart(2, "0");
+  const paddedEpisode = episode.episode.toString().padStart(2, "0");
+  return `S${paddedSeason}E${paddedEpisode}`;
+});

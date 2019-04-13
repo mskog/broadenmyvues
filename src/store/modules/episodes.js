@@ -4,7 +4,7 @@ export default {
   namespaced: true,
   state: {
     items: [],
-    per_page: 10
+    per_page: 20
   },
 
   mutations: {

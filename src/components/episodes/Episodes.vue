@@ -1,12 +1,6 @@
 <template>
   <div>
-    <section
-      class="section is-marginless"
-      style="padding-bottom: 0; padding-top: 15px"
-    >
-      <h1 class="title">Episodes</h1>
-    </section>
-    <section class="section is-paddingless">
+    <section class="section">
       <div class="container">
         <EpisodesList :episodes="episodes" />
         <infinite-loading
@@ -46,6 +40,15 @@ export default {
       this.page = this.page + 1;
       this.infiniteState = $state;
       this.loadMore(this.page);
+    }
+  },
+
+  watch: {
+    episodes: function() {
+      if (this.infiniteState === null) {
+        return;
+      }
+      this.infiniteState.loaded();
     }
   },
 

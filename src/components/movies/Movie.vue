@@ -74,11 +74,11 @@ export default {
     border-radius: 3px
     position: relative
     padding: 7.5px
-    height: 8em
+    height: 9em
     box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
 
   img.poster
-    bottom: 1em
+    bottom: 1.5em
     height: 9em
     position: absolute
     border-radius: 3px

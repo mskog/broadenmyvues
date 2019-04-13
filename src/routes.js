@@ -1,8 +1,8 @@
-import Movies from "./components/Movies.vue";
-import Episodes from "./components/Episodes.vue";
+import Movies from "./components/movies/Movies.vue";
+import Episodes from "./components/episodes/Episodes.vue";
 import Login from "./components/Login.vue";
-import MovieDetails from "./components/MovieDetails.vue";
-import TvShowsCalendar from "./components/TvShowsCalendar.vue";
+import MovieDetails from "./components/movies/MovieDetails.vue";
+import TvShowsCalendar from "./components/calendar/TvShowsCalendar.vue";
 
 export default [
   {

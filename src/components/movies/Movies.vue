@@ -1,7 +1,6 @@
 <template>
   <section class="section">
     <div class="container">
-      <h1 class="title">Movies</h1>
       <div class="tabs is-fullwidth">
         <ul>
           <li v-bind:class="{ 'is-active': activeTab('watched') }">

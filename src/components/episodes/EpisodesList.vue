@@ -1,14 +1,12 @@
 <template>
-  <div class="episodes">
-    <ul>
-      <li
-        class="is-marginless"
-        v-for="episode in episodes"
-        v-bind:key="episode.id"
-      >
-        <Episode :episode="episode">{{ episodes }}</Episode>
-      </li>
-    </ul>
+  <div class="columns is-mobile is-multiline">
+    <div
+      class="column is-12"
+      v-for="episode in episodes"
+      v-bind:key="episode.id"
+    >
+      <Episode :episode="episode">{{ episodes }}</Episode>
+    </div>
   </div>
 </template>
 
