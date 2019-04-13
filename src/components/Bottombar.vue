@@ -8,7 +8,11 @@
       <div class="navbar-item">
         <span class="has-text-centered">
           <router-link to="/">
-            <span v-bind:class="{ active: currentRouteName() === 'movies' }">
+            <span
+              v-bind:class="{
+                active: this.$route.path.includes('movies')
+              }"
+            >
               <b-icon pack="fas" icon="film" size="is-medium" />
               <div class="is-size-6">Movies</div>
             </span>

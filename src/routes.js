@@ -12,10 +12,8 @@ export default [
     props: true
   },
   {
-    name: "movies",
     path: "/",
-    component: Movies,
-    props: true
+    redirect: "/movies/watched"
   },
   {
     name: "movies",
