@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-mobile is-multiline">
     <div
-      class="column is-12"
+      class="column is-12-mobile is-4-desktop is-6-tablet"
       v-for="episode in episodes"
       v-bind:key="episode.id"
     >
