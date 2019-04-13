@@ -36,9 +36,13 @@ export default {
         "background-size": "cover",
         "background-repeat": "none",
         "background-image": `linear-gradient(rgba(21,26,48,0.4), rgba(21,26,48,0.8)), url(${
-          this.episode.still
+          this.stillImage
         })`
       };
+    },
+
+    stillImage() {
+      return "https://thumbs.mskog.com/" + this.episode.still;
     }
   }
 };
