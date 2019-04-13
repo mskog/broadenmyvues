@@ -5,6 +5,7 @@ import VuexPersistence from "vuex-persist";
 
 import posters from "./modules/posters";
 import movies from "./modules/movies";
+import episodes from "./modules/episodes";
 import tv_shows_calendar from "./modules/tv_shows_calendar";
 import auth from "./modules/auth";
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   modules: {
     posters,
     movies,
+    episodes,
     tv_shows_calendar,
     auth
   },
