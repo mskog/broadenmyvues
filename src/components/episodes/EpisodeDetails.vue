@@ -93,7 +93,7 @@ export default {
     border-top: 2px solid $grey-darker
   .top
     position: relative
-    height: 66vh
+    height: 33vh
     background-size: cover
     background-position: center
     padding-left: 2em
