@@ -1,6 +1,8 @@
 <template>
   <div class="episode">
-    <div :style="backgroundStyle"></div>
+    <router-link :to="`/episodes/details/${episode.id}`">
+      <div :style="backgroundStyle"></div>
+    </router-link>
     <b-icon
       v-if="episode.watched"
       class="watched"
@@ -8,18 +10,22 @@
       icon="eye"
       size="is-small"
     ></b-icon>
-    <div class="content">
-      <h2
-        class="is-marginless title is-size-4 has-text-white has-text-weight-bold"
-      >
-        {{ episode.name }}
-      </h2>
-      <p class="details is-size-5">
-        <span class="has-text-weight-bold">{{ episode | seasonEpisode }}</span>
-        -
-        {{ episode.tmdb_details.name }}
-      </p>
-    </div>
+    <router-link :to="`/episodes/details/${episode.id}`">
+      <div class="content">
+        <h2
+          class="is-marginless title is-size-4 has-text-white has-text-weight-bold"
+        >
+          {{ episode.name }}
+        </h2>
+        <p class="details is-size-5">
+          <span class="has-text-weight-bold">{{
+            episode | seasonEpisode
+          }}</span>
+          -
+          {{ episode.tmdb_details.name }}
+        </p>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -49,6 +55,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  a
+    text-decoration: none
+    color: inherit
+
   .episode
     position: relative
     width: 100%
@@ -68,6 +78,7 @@ export default {
 
     .title
       padding-bottom: 5px
+
 </style>
 
 

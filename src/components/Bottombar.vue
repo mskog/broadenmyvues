@@ -24,7 +24,7 @@
           <router-link to="/episodes">
             <span
               v-bind:class="{
-                active: currentRouteName() === 'episodes'
+                active: this.$route.path.includes('episodes')
               }"
             >
               <b-icon pack="fas" icon="tv" size="is-medium" />
@@ -38,7 +38,7 @@
           <router-link to="/tv_shows_calendar">
             <span
               v-bind:class="{
-                active: currentRouteName() === 'tv_shows_calendar'
+                active: this.$route.path.includes('tv_shows_calendar')
               }"
             >
               <b-icon pack="fas" icon="calendar" size="is-medium" />

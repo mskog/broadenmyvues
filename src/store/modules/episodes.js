@@ -7,6 +7,17 @@ export default {
     per_page: 20
   },
 
+  getters: {
+    getEpisode: state => id => {
+      const item = state.items.find(item => item.id == id);
+      if (item) {
+        return item;
+      } else {
+        return {};
+      }
+    }
+  },
+
   mutations: {
     refresh(state, { episodes }) {
       Vue.set(state, "items", episodes);
@@ -14,6 +25,15 @@ export default {
 
     loadMore(state, { episodes }) {
       Vue.set(state, "items", state.items.concat(episodes));
+    },
+
+    refreshSingle(state, { episode }) {
+      const index = state.items.findIndex(item => item.id == episode.id);
+      if (index == -1) {
+        Vue.set(state, "items", state.items.concat(episode));
+      } else {
+        Vue.set(state.items, index, episode);
+      }
     }
   },
 
@@ -35,6 +55,14 @@ export default {
         .get("https://broad.mskog.com/api/v1/episodes.json")
         .then(response => {
           context.commit("refresh", { episodes: response.body });
+        });
+    },
+
+    refreshSingle(context, id) {
+      Vue.http
+        .get(`https://broad.mskog.com/api/v1/episodes/${id}.json`)
+        .then(response => {
+          context.commit("refreshSingle", { episode: response.body });
         });
     }
   }
