@@ -1,4 +1,5 @@
 import Movies from "./components/movies/Movies.vue";
+import MoviesSearch from "./components/movies_search/MoviesSearch.vue";
 import Episodes from "./components/episodes/Episodes.vue";
 import EpisodeDetails from "./components/episodes/EpisodeDetails.vue";
 import Login from "./components/Login.vue";
@@ -15,6 +16,12 @@ export default [
   {
     path: "/",
     redirect: "/movies/watched"
+  },
+  {
+    name: "movies_search",
+    path: "/movies_search",
+    component: MoviesSearch,
+    props: true
   },
   {
     name: "movies",
