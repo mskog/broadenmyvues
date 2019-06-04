@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <div v-for="result in results" v-bind:key="result.imdb_id">
-      <Result v-bind="result" />
+  <section class="section">
+    <div class="container">
+      <div class="movies">
+        <ul>
+          <li v-for="result in results" v-bind:key="result.imdb_id">
+            <Result v-bind="result" />
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -27,4 +33,12 @@ export default {
   }
 };
 </script>
+
+<style lang="sass" scoped>
+  ul
+    padding-top: 5em
+
+  li
+    margin-bottom: 4em
+</style>
 

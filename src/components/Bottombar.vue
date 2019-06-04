@@ -10,7 +10,7 @@
           <router-link to="/">
             <span
               v-bind:class="{
-                active: this.$route.path.includes('movies')
+                active: this.$route.path.includes('movies/')
               }"
             >
               <b-icon pack="fas" icon="film" size="is-medium" />
