@@ -16,13 +16,16 @@ export default {
 
   actions: {
     search(context, query) {
-      Vue.http
-        .get(
-          `https://broad.mskog.com/api/v1/movie_searches.json?query=${query}`
-        )
-        .then(response => {
-          context.commit("refreshResults", { results: response.body });
-        });
+      return new Promise(resolve => {
+        Vue.http
+          .get(
+            `https://broad.mskog.com/api/v1/movie_searches.json?query=${query}`
+          )
+          .then(response => {
+            context.commit("refreshResults", { results: response.body });
+            resolve();
+          });
+      });
     }
   }
 };
