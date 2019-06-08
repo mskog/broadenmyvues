@@ -9,6 +9,7 @@
               placeholder="Movie title, imdb_id, imdb_url, etc..."
               expanded
               v-model="query"
+              @keyup.native.enter="search"
             ></b-input>
             <p class="control">
               <button class="button is-primary" @click="search">
@@ -20,6 +21,9 @@
       </div>
       <div class="movies">
         <ul>
+          <li v-if="!results.length && resultsLoaded">
+            <h2 class="is-size-4">No results found</h2>
+          </li>
           <li
             v-for="result in results"
             v-bind:key="`${result.title}-${result.imdb_id}`"
@@ -43,18 +47,18 @@ export default {
   data() {
     return {
       query: "",
-      loading: false
+      loading: false,
+      resultsLoaded: false
     };
   },
   methods: {
-    // ...mapActions("movies_search", ["search"])
-
     search() {
       this.loading = true;
       this.$store
         .dispatch("movies_search/search", this.query)
         .then(response => {
           this.loading = false;
+          this.resultsLoaded = true;
         });
     }
   },

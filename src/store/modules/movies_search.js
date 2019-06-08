@@ -11,6 +11,10 @@ export default {
   mutations: {
     refreshResults(state, { results }) {
       Vue.set(state, "results", results);
+    },
+
+    reset(state) {
+      Vue.set(state, "results", []);
     }
   },
 
@@ -26,6 +30,9 @@ export default {
             resolve();
           });
       });
+    },
+    reset(context) {
+      context.commit("reset");
     }
   }
 };
