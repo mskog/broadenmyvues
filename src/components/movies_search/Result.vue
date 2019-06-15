@@ -8,7 +8,7 @@
         </lazy-component>
       </div>
       <div class="column">
-        <h2 class="is-size-5 title">{{ title }}</h2>
+        <h2 class="title">{{ title }}</h2>
         <div class="is-size-7">
           <div class="level is-mobile">
             <div class="level-left">
@@ -84,6 +84,7 @@ export default {
     ...mapActions("posters", ["loadPoster"]),
 
     checkReleases() {
+      this.releasesLoaded = false;
       this.loading = true;
       this.$store
         .dispatch("movies_search/loadReleaseInformation", this.imdb_id)

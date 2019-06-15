@@ -54,6 +54,7 @@ export default {
   methods: {
     search() {
       this.loading = true;
+      this.resultsLoaded = false;
       this.$store
         .dispatch("movies_search/search", this.query)
         .then(response => {

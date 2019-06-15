@@ -14,7 +14,10 @@
       </div>
     </div>
     <div v-else>
-      <h2 class="title is-size-6 is-marginless">No acceptable release found</h2>
+      <h2 class="title is-size-6">No acceptable release found</h2>
+      <button @click="waitlist(imdb_id)" class="button is-small is-primary">
+        Add to Waitlist
+      </button>
     </div>
   </div>
 </template>
@@ -45,6 +48,12 @@ export default {
       this.loading = true;
       this.$store.dispatch("movies_search/download", this.imdb_id).then(() => {
         this.$router.push("/movies/downloads");
+      });
+    },
+    waitlist() {
+      this.loading = true;
+      this.$store.dispatch("movies_search/waitlist", this.imdb_id).then(() => {
+        this.$router.push("/movies/waitlist");
       });
     }
   }

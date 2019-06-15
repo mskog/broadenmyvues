@@ -19,8 +19,7 @@ export default {
 
     loadReleaseinformation(state, { imdb_id, data }) {
       const index = state.results.findIndex(item => item.imdb_id == imdb_id);
-      const movieWithDetails = Object.assign(state.results[index], data);
-      Vue.set(state, index, movieWithDetails);
+      Vue.set(state.results, index, { ...state.results[index], ...data });
     }
   },
 
@@ -59,8 +58,24 @@ export default {
             query: imdb_id
           })
           .then(() => {
-            resolve();
-            context.dispatch("movies/refresh", "downloads", { root: true });
+            setTimeout(() => {
+              context.dispatch("movies/refresh", "downloads", { root: true });
+              resolve();
+            }, 1000);
+          });
+      });
+    },
+    waitlist(context, imdb_id) {
+      return new Promise(resolve => {
+        Vue.http
+          .post(`https://broad.mskog.com/api/v1/movie_waitlists/`, {
+            imdb_id: imdb_id
+          })
+          .then(() => {
+            setTimeout(() => {
+              context.dispatch("movies/refresh", "waitlist", { root: true });
+              resolve();
+            }, 1000);
           });
       });
     },
