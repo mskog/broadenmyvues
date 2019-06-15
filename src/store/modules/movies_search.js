@@ -3,13 +3,21 @@ import Vue from "vue";
 export default {
   namespaced: true,
   state: {
+    query: "",
     results: []
   },
 
-  getters: {},
+  getters: {
+    getResult: state => imdb_id => {
+      return state.results.find(result => {
+        return result.imdb_id === imdb_id;
+      });
+    }
+  },
 
   mutations: {
-    refreshResults(state, { results }) {
+    refreshResults(state, { query, results }) {
+      Vue.set(state, "query", query);
       Vue.set(state, "results", results);
     },
 
@@ -31,7 +39,7 @@ export default {
             `https://broad.mskog.com/api/v1/movie_searches.json?query=${query}`
           )
           .then(response => {
-            context.commit("refreshResults", { results: response.body });
+            context.commit("refreshResults", { query, results: response.body });
             resolve();
           });
       });

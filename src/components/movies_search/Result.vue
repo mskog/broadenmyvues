@@ -3,12 +3,18 @@
     <b-loading :active="loading" :is-full-page="false"></b-loading>
     <div class="columns is-mobile">
       <div class="column is-one-third">
-        <lazy-component @show="loadPoster({ type: 'movie', tmdb_id: tmdb_id })">
-          <img :src="getPoster('movie', tmdb_id)" class="poster" />
-        </lazy-component>
+        <router-link :to="`/movies_search/details/${imdb_id}`">
+          <lazy-component
+            @show="loadPoster({ type: 'movie', tmdb_id: tmdb_id })"
+          >
+            <img :src="getPoster('movie', tmdb_id)" class="poster" />
+          </lazy-component>
+        </router-link>
       </div>
       <div class="column">
-        <h2 class="title">{{ title }}</h2>
+        <router-link :to="`/movies_search/details/${imdb_id}`">
+          <h2 class="title">{{ title }}</h2>
+        </router-link>
         <div class="is-size-7">
           <div class="level is-mobile">
             <div class="level-left">
@@ -18,25 +24,7 @@
               </div>
             </div>
           </div>
-          <p>{{ truncatedOverview }}</p>
         </div>
-      </div>
-    </div>
-    <div>
-      <button
-        v-if="!releasesLoaded"
-        @click="checkReleases"
-        class="button is-small is-primary is-fullwidth"
-      >
-        Check releases
-      </button>
-      <div v-if="releasesLoaded">
-        <Release
-          v-bind:has_killer_release="has_killer_release"
-          v-bind:has_acceptable_release="has_acceptable_release"
-          v-bind:best_release="best_release"
-          v-bind:imdb_id="imdb_id"
-        />
       </div>
     </div>
   </div>
@@ -72,13 +60,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("posters", ["getPoster"]),
-    truncatedOverview() {
-      if (this.overview === null) {
-        return "";
-      }
-      return this.overview.substring(0, 90) + "...";
-    }
+    ...mapGetters("posters", ["getPoster"])
   },
   methods: {
     ...mapActions("posters", ["loadPoster"]),

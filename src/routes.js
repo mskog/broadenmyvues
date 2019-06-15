@@ -1,5 +1,6 @@
 import Movies from "./components/movies/Movies.vue";
 import MoviesSearch from "./components/movies_search/MoviesSearch.vue";
+import MoviesSearchDetails from "./components/movies_search/ResultDetailsContainer.vue";
 import Episodes from "./components/episodes/Episodes.vue";
 import EpisodeDetails from "./components/episodes/EpisodeDetails.vue";
 import Login from "./components/Login.vue";
@@ -21,6 +22,12 @@ export default [
     name: "movies_search",
     path: "/movies_search",
     component: MoviesSearch,
+    props: true
+  },
+  {
+    name: "movies_search_details",
+    path: "/movies_search/details/:imdb_id",
+    component: MoviesSearchDetails,
     props: true
   },
   {

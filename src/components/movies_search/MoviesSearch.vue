@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      query: "",
+      query: this.$store.state.movies_search.query,
       loading: false,
       resultsLoaded: false
     };

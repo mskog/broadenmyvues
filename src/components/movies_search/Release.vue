@@ -1,21 +1,33 @@
 <template>
-  <div>
+  <div class="columns">
     <b-loading :active="loading" :is-full-page="false"></b-loading>
-    <div v-if="hasAcceptableRelease">
-      <h2 class="title is-size-6 is-marginless">Best release</h2>
-      <div class="is-size-7 releases">
-        {{ this.best_release.joined_attributes }}
-        <div v-if="hasKillerRelease">
-          This is a killer release
+    <div class="column" v-if="hasAcceptableRelease">
+      <h2 class="title is-size-4 ">Best release</h2>
+      <div class="columns releases">
+        <div class="column">
+          {{ this.best_release.joined_attributes }}
+          <div v-if="hasKillerRelease">
+            <h2 class="title is-size-6">
+              This is a killer release
+            </h2>
+          </div>
         </div>
-        <button @click="download(imdb_id)" class="button is-small is-primary">
-          Download
-        </button>
+        <div class="column">
+          <button
+            @click="download(imdb_id)"
+            class="button is-small is-primary is-fullwidth"
+          >
+            Download
+          </button>
+        </div>
       </div>
     </div>
-    <div v-else>
+    <div class="column" v-else>
       <h2 class="title is-size-6">No acceptable release found</h2>
-      <button @click="waitlist(imdb_id)" class="button is-small is-primary">
+      <button
+        @click="waitlist(imdb_id)"
+        class="button is-small is-primary is-fullwidth"
+      >
         Add to Waitlist
       </button>
     </div>
