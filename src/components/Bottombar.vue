@@ -35,6 +35,20 @@
       </div>
       <div class="navbar-item">
         <span class="has-text-centered">
+          <router-link to="/movies_search">
+            <span
+              v-bind:class="{
+                active: this.$route.path.includes('movies_search')
+              }"
+            >
+              <b-icon pack="fas" icon="search" size="is-medium" />
+              <div class="is-size-6">Search</div>
+            </span>
+          </router-link>
+        </span>
+      </div>
+      <div class="navbar-item">
+        <span class="has-text-centered">
           <router-link to="/tv_shows_calendar">
             <span
               v-bind:class="{
