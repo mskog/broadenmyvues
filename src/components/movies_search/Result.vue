@@ -1,6 +1,5 @@
 <template>
   <div class="movie">
-    <b-loading :active="loading" :is-full-page="false"></b-loading>
     <div class="columns is-mobile">
       <div class="column is-one-third">
         <router-link :to="`/movies_search/details/${imdb_id}`">
@@ -54,8 +53,7 @@ export default {
 
   data() {
     return {
-      releasesLoaded: false,
-      loading: false
+      releasesLoaded: false
     };
   },
 
@@ -67,11 +65,9 @@ export default {
 
     checkReleases() {
       this.releasesLoaded = false;
-      this.loading = true;
       this.$store
         .dispatch("movies_search/loadReleaseInformation", this.imdb_id)
         .then(() => {
-          this.loading = false;
           this.releasesLoaded = true;
         });
     }

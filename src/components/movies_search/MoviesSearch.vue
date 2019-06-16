@@ -10,10 +10,11 @@
               expanded
               v-model="query"
               @keyup.native.enter="search"
+              @focus="clear"
             ></b-input>
             <p class="control">
               <button class="button is-primary" @click="search">
-                Search
+                <b-icon pack="fas" icon="search" />
               </button>
             </p>
           </b-field>
@@ -52,6 +53,10 @@ export default {
     };
   },
   methods: {
+    clear() {
+      this.query = "";
+    },
+
     search() {
       this.loading = true;
       this.resultsLoaded = false;

@@ -40,9 +40,6 @@
           v-bind:imdb_id="imdb_id"
         />
       </div>
-      <div v-else>
-        <b-loading :active="true" :is-full-page="false"></b-loading>
-      </div>
     </div>
   </div>
 </template>

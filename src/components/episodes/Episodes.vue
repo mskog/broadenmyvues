@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <section class="section">
-      <div class="container">
-        <EpisodesList :episodes="episodes" />
-        <infinite-loading
-          v-if="episodes.length > 0"
-          @infinite="infiniteHandler"
-        ></infinite-loading>
-      </div>
-    </section>
-  </div>
+  <section class="section">
+    <div class="container">
+      <EpisodesList :episodes="episodes" />
+      <infinite-loading
+        v-if="episodes.length > 0"
+        @infinite="infiniteHandler"
+      ></infinite-loading>
+    </div>
+  </section>
 </template>
 
 <script>
