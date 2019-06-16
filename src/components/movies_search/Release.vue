@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-    <b-loading :active="loading" :is-full-page="false"></b-loading>
+    <b-loading :active="loading" :is-full-page="true"></b-loading>
     <div class="column" v-if="hasAcceptableRelease">
       <h2 class="title is-size-4 ">Best release</h2>
       <div class="columns releases">
@@ -10,6 +10,14 @@
             <h2 class="title is-size-6">
               This is a killer release
             </h2>
+          </div>
+          <div v-else>
+            <button
+              @click="waitlist(imdb_id)"
+              class="button is-small is-primary is-fullwidth"
+            >
+              Add to Waitlist
+            </button>
           </div>
         </div>
         <div class="column">
