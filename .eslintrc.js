@@ -1,7 +1,9 @@
 module.exports = {
   root: true,
+  plugins: ["cypress"],
   env: {
-    node: true
+    node: true,
+    "cypress/globals": true
   },
   extends: ["plugin:vue/essential", "@vue/prettier"],
   rules: {
