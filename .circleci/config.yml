@@ -5,8 +5,10 @@ orbs:
 workflows:
   build:
     jobs:
-      - project/build:
-        build: "npm run build"
+      - cypress/install:
+          name: "cypress/install"
+          build: "npm run build"
       - cypress/run:
-        requires:
-          "project/build"
+          requires:
+            - "cypress/install"
+
