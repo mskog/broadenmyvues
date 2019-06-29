@@ -5,7 +5,7 @@
       v-for="episode in episodes"
       v-bind:key="episode.id"
     >
-      <Episode :episode="episode">{{ episodes }}</Episode>
+      <Episode :episode="episode" />
     </div>
   </div>
 </template>

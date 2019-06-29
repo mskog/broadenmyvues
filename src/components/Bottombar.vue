@@ -21,6 +21,20 @@
       </div>
       <div class="navbar-item">
         <span class="has-text-centered">
+          <router-link to="/tv_shows">
+            <span
+              v-bind:class="{
+                active: this.$route.path.includes('tv_shows')
+              }"
+            >
+              <b-icon pack="fas" icon="tv" size="is-medium" />
+              <div class="is-size-6">TV Shows</div>
+            </span>
+          </router-link>
+        </span>
+      </div>
+      <div class="navbar-item">
+        <span class="has-text-centered">
           <router-link to="/episodes">
             <span
               v-bind:class="{
@@ -81,7 +95,6 @@ export default {
 
   nav
     background: $background
-    padding-left: 1em
 
   .navbar-item
     color: $title-color
