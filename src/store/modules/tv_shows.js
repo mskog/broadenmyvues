@@ -3,8 +3,7 @@ import Vue from "vue";
 export default {
   namespaced: true,
   state: {
-    items: [],
-    per_page: 20
+    items: []
   },
 
   getters: {
@@ -39,11 +38,11 @@ export default {
 
   actions: {
     loadMore(context) {
-      const page = context.state.items.length / context.state.per_page;
+      const page = context.state.items.length / 10;
 
       return Vue.http
         .get("https://broad.mskog.com/api/v1/tv_shows.json", {
-          params: { page: page + 1, per_page: context.state.per_page }
+          params: { page: page + 1, per_page: 10 }
         })
         .then(response => {
           context.commit("loadMore", { tv_shows: response.body });
