@@ -3,7 +3,8 @@ import Vue from "vue";
 export default {
   namespaced: true,
   state: {
-    items: []
+    items: [],
+    per_page: 20
   },
 
   getters: {
@@ -18,6 +19,10 @@ export default {
   },
 
   mutations: {
+    loadMore(state, { tv_shows }) {
+      Vue.set(state, "items", state.items.concat(tv_shows));
+    },
+
     refresh(state, { tv_shows }) {
       Vue.set(state, "items", tv_shows);
     },
@@ -33,9 +38,23 @@ export default {
   },
 
   actions: {
+    loadMore(context) {
+      const page = context.state.items.length / context.state.per_page;
+
+      return Vue.http
+        .get("https://broad.mskog.com/api/v1/tv_shows.json", {
+          params: { page: page + 1, per_page: context.state.per_page }
+        })
+        .then(response => {
+          context.commit("loadMore", { tv_shows: response.body });
+        });
+    },
+
     refresh(context) {
       Vue.http
-        .get("https://broad.mskog.com/api/v1/tv_shows.json")
+        .get("https://broad.mskog.com/api/v1/tv_shows.json", {
+          params: { per_page: 10 }
+        })
         .then(response => {
           context.commit("refresh", { tv_shows: response.body });
         });
