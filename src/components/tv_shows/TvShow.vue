@@ -6,21 +6,21 @@
           loadPoster({ type: 'tv_show', tmdb_id: tv_show.tmdb_details.id })
         "
       >
-        <!-- <router-link :to="`/movies/details/${movie.id}`"> -->
+        <router-link :to="`/tv_shows/details/${tv_show.id}`">
         <img
           :src="getPoster('tv_show', tv_show.tmdb_details.id)"
           class="poster image"
         />
-        <!-- </router-link> -->
+        </router-link>
       </lazy-component>
     </div>
     <div class="column">
-      <!-- <router-link :to="`/movies/details/${movie.id}`"> -->
+      <router-link :to="`/tv_shows/details/${tv_show.id}`">
       <h2 class="is-size-5 title">{{ tv_show.name }}</h2>
       <h2 class="subtitle ratings">
         <Ratings :rating="rating" />
       </h2>
-      <!-- </router-link> -->
+      </router-link>
       <div class="is-size-7">
         <div class="level is-mobile">
           <div class="level-left">

@@ -38,3 +38,9 @@ Vue.filter("seasonEpisode", episode => {
   const paddedEpisode = episode.episode.toString().padStart(2, "0");
   return `S${paddedSeason}E${paddedEpisode}`;
 });
+
+Vue.filter("capitalize", function(value) {
+  if (!value) return "";
+  value = value.toString();
+  return value.charAt(0).toUpperCase() + value.slice(1);
+});

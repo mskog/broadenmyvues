@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive include="movies,episodes">
+    <keep-alive include="movies,episodes,tv_shows">
       <router-view></router-view>
     </keep-alive>
     <Bottombar />

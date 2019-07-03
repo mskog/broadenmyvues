@@ -6,6 +6,7 @@ import EpisodeDetails from "./components/episodes/EpisodeDetails.vue";
 import Login from "./components/Login.vue";
 import MovieDetails from "./components/movies/MovieDetails.vue";
 import TvShows from "./components/tv_shows/TvShows.vue";
+import TvShowDetails from "./components/tv_shows/TvShowDetails.vue";
 import TvShowsCalendar from "./components/calendar/TvShowsCalendar.vue";
 
 export default [
@@ -58,6 +59,12 @@ export default [
     name: "tv_shows",
     path: "/tv_shows",
     component: TvShows
+  },
+  {
+    name: "tv_show_details",
+    path: "/tv_shows/details/:id",
+    component: TvShowDetails,
+    props: true
   },
   {
     name: "tv_shows_calendar",

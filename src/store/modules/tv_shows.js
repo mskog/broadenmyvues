@@ -63,7 +63,7 @@ export default {
       Vue.http
         .get(`https://broad.mskog.com/api/v1/tv_shows/${id}.json`)
         .then(response => {
-          context.commit("refreshSingle", { episode: response.body });
+          context.commit("refreshSingle", { tv_show: response.body });
         });
     }
   }
