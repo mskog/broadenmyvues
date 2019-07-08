@@ -63,7 +63,6 @@ export default {
       return this.$store.getters["tv_shows/getTvShow"](this.id);
     },
     loading() {
-      console.log(this.tv_show);
       return this.tv_show.name == undefined;
     },
     backgroundStyle() {

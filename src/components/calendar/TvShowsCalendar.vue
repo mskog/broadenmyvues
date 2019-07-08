@@ -17,9 +17,11 @@
             >
               <div class="timeline-marker"></div>
               <div class="timeline-content" style="width: 100%">
-                <figure class="poster image">
-                  <img :src="getPoster(item.show.ids.tmdb)" />
-                </figure>
+                <router-link :to="`/tv_shows/details/${item.id}`">
+                  <figure class="poster image">
+                    <img :src="getPoster(item.tmdb_details.id)" />
+                  </figure>
+                </router-link>
               </div>
             </div>
           </template>
