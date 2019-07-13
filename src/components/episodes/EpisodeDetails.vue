@@ -9,7 +9,9 @@
           </div>
           <div class="episodetitle">
             <h1 class="title">
-              {{ episode.name }}
+              <router-link :to="`/tv_shows/details/${episode.tv_show_id}`">
+                {{ episode.name }}
+              </router-link>
             </h1>
             <h2 class="subtitle">
               {{ episode.tmdb_details.name }}
@@ -56,9 +58,7 @@ export default {
     },
     backgroundStyle() {
       return {
-        "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${
-          this.stillImage
-        })`
+        "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${this.stillImage})`
       };
     },
     stillImage() {
