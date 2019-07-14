@@ -14,6 +14,11 @@ export default {
       } else {
         return {};
       }
+    },
+
+    getEpisodesBySeason: state => tv_show_id => {
+      const item = state.items.find(item => item.id == id);
+      return groupby(item.episodes, episode => episode.season);
     }
   },
 

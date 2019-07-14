@@ -49,14 +49,18 @@
           <h2 class="title is-size-4">Synopsis</h2>
           <p>{{ tv_show.tmdb_details.overview }}</p>
         </div>
+        <Episodes :episodes="tv_show.episodes" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Episodes from "./Episodes";
 import { mapGetters, mapActions } from "vuex";
+
 export default {
+  components: { Episodes },
   props: ["id"],
   computed: {
     tv_show() {
@@ -64,6 +68,9 @@ export default {
     },
     loading() {
       return this.tv_show.name == undefined;
+    },
+    episodesLoading() {
+      return true;
     },
     backgroundStyle() {
       return {
@@ -137,5 +144,6 @@ export default {
 
   .synopsis
     padding-bottom: 50px
+
 </style>
 
