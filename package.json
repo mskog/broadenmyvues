@@ -14,7 +14,7 @@
     "javascript-time-ago": "^2.0.1",
     "lodash.groupby": "^4.6.0",
     "moment": "^2.24.0",
-    "register-service-worker": "^1.5.2",
+    "register-service-worker": "^1.6.2",
     "vue": "^2.5.22",
     "vue-infinite-loading": "^2.4.3",
     "vue-lazyload": "^1.2.6",
