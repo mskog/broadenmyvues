@@ -15,7 +15,7 @@
     "lodash.groupby": "^4.6.0",
     "moment": "^2.24.0",
     "register-service-worker": "^1.5.2",
-    "vue": "^2.5.22",
+    "vue": "^2.6.10",
     "vue-infinite-loading": "^2.4.3",
     "vue-lazyload": "^1.2.6",
     "vue-resource": "^1.5.1",
@@ -35,6 +35,6 @@
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.6.10"
   }
 }
