@@ -69,24 +69,28 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import '../../assets/css/style.sass'
+
   div.movie
-    background: #1E2748
+    background: $background-risen
     border-radius: 3px
     position: relative
-    padding: 7.5px
     height: 9em
+    padding-top: 0.5rem
     box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
 
   img.poster
-    bottom: 1.5em
-    height: 9em
+    bottom: 1.5rem
+    height: 100%
+    width: 30%
     position: absolute
     border-radius: 3px
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.75)
 
   .download
     position: absolute
-    right: 15px
-    top: 15px
+    right: 1rem
+    top: 1rem
 
   h2
     letter-spacing: 1px
@@ -94,6 +98,6 @@ export default {
   h2.subtitle.ratings
     font-size: 12px
     color: orange
-    margin-bottom: 15px
+    margin-bottom: 0.5rem
 </style>
 
