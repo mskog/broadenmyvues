@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <keep-alive include="movies,episodes,tv_shows">
-      <router-view></router-view>
+    <keep-alive :max="10">
+      <router-view :key="$route.fullPath"></router-view>
     </keep-alive>
     <Bottombar />
   </div>
