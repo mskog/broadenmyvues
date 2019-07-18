@@ -49,7 +49,7 @@
           <h2 class="title is-size-4">Synopsis</h2>
           <p>{{ tv_show.tmdb_details.overview }}</p>
         </div>
-        <Episodes :episodes="tv_show.episodes" />
+        <Episodes :episodes="tv_show.released_episodes" />
       </div>
     </div>
   </div>
