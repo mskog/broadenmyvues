@@ -14,11 +14,6 @@ export default {
       } else {
         return {};
       }
-    },
-
-    getEpisodesBySeason: state => tv_show_id => {
-      const item = state.items.find(item => item.id == id);
-      return groupby(item.episodes, episode => episode.season);
     }
   },
 
@@ -67,6 +62,14 @@ export default {
     refreshSingle(context, id) {
       Vue.http
         .get(`https://broad.mskog.com/api/v1/tv_shows/${id}.json`)
+        .then(response => {
+          context.commit("refreshSingle", { tv_show: response.body });
+        });
+    },
+
+    collect(context, id) {
+      Vue.http
+        .patch(`https://broad.mskog.com/api/v1/tv_shows/${id}/collect.json`)
         .then(response => {
           context.commit("refreshSingle", { tv_show: response.body });
         });

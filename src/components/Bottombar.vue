@@ -28,7 +28,7 @@
               }"
             >
               <b-icon pack="fas" icon="tv" size="is-medium" />
-              <div class="is-size-6">TV Shows</div>
+              <div class="is-size-6">Shows</div>
             </span>
           </router-link>
         </span>
@@ -98,6 +98,8 @@ export default {
 
   .navbar-item
     color: $title-color
+    padding: 0.3rem
+    width: 20%
 
   span.active
     color: $white

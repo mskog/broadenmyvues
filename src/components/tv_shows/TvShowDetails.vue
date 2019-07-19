@@ -49,7 +49,18 @@
           <h2 class="title is-size-4">Synopsis</h2>
           <p>{{ tv_show.tmdb_details.overview }}</p>
         </div>
-        <Episodes :episodes="tv_show.released_episodes" />
+        <section>
+          <button
+            v-if="!tv_show.collected"
+            @click="collect(tv_show.id)"
+            class="button is-fullwidth is-primary"
+          >
+            Collect
+          </button>
+        </section>
+        <section>
+          <Episodes :episodes="tv_show.released_episodes" />
+        </section>
       </div>
     </div>
   </div>
@@ -96,7 +107,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("tv_show", ["refreshSingle"]),
+    ...mapActions("tv_shows", ["refreshSingle", "collect"]),
     ...mapActions("posters", ["loadPoster"]),
 
     goBack() {
