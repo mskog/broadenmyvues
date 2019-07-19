@@ -68,8 +68,26 @@ export default {
     },
 
     collect(context, id) {
-      Vue.http
+      return Vue.http
         .patch(`https://broad.mskog.com/api/v1/tv_shows/${id}/collect.json`)
+        .then(response => {
+          context.commit("refreshSingle", { tv_show: response.body });
+        });
+    },
+
+    watching(context, id) {
+      return Vue.http
+        .patch(`https://broad.mskog.com/api/v1/tv_shows/${id}/watching.json`)
+        .then(response => {
+          context.commit("refreshSingle", { tv_show: response.body });
+        });
+    },
+
+    notWatching(context, id) {
+      return Vue.http
+        .patch(
+          `https://broad.mskog.com/api/v1/tv_shows/${id}/not_watching.json`
+        )
         .then(response => {
           context.commit("refreshSingle", { tv_show: response.body });
         });

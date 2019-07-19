@@ -63,10 +63,10 @@
       </div>
       <div class="navbar-item">
         <span class="has-text-centered">
-          <router-link to="/tv_shows_calendar">
+          <router-link to="/calendar">
             <span
               v-bind:class="{
-                active: this.$route.path.includes('tv_shows_calendar')
+                active: this.$route.path.includes('calendar')
               }"
             >
               <b-icon pack="fas" icon="calendar" size="is-medium" />

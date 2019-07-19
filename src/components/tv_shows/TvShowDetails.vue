@@ -49,14 +49,38 @@
           <h2 class="title is-size-4">Synopsis</h2>
           <p>{{ tv_show.tmdb_details.overview }}</p>
         </div>
-        <section>
-          <button
-            v-if="!tv_show.collected"
-            @click="collect(tv_show.id)"
-            class="button is-fullwidth is-primary"
-          >
-            Collect
-          </button>
+        <section class="action_buttons">
+          <div class="row">
+            <div class="columns">
+              <div v-if="!tv_show.watching" class="column">
+                <b-button
+                  @click="watching(tv_show.id)"
+                  class="button is-fullwidth is-primary"
+                  :loading="buttonWatchingLoading"
+                >
+                  Watch
+                </b-button>
+              </div>
+              <div v-if="tv_show.watching" class="column">
+                <b-button
+                  @click="notWatching(tv_show.id)"
+                  class="button is-fullwidth is-danger"
+                  :loading="buttonNotWatchingLoading"
+                >
+                  Unwatch
+                </b-button>
+              </div>
+              <div v-if="!tv_show.collected" class="column">
+                <b-button
+                  @click="collect(tv_show.id)"
+                  class="button is-fullwidth is-primary"
+                  :loading="buttonCollectLoading"
+                >
+                  Collect
+                </b-button>
+              </div>
+            </div>
+          </div>
         </section>
         <section>
           <Episodes :episodes="tv_show.released_episodes" />
@@ -73,6 +97,13 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   components: { Episodes },
   props: ["id"],
+  data() {
+    return {
+      buttonWatchingLoading: false,
+      buttonNotWatchingLoading: false,
+      buttonCollectLoading: false
+    };
+  },
   computed: {
     tv_show() {
       return this.$store.getters["tv_shows/getTvShow"](this.id);
@@ -107,11 +138,30 @@ export default {
     }
   },
   methods: {
-    ...mapActions("tv_shows", ["refreshSingle", "collect"]),
+    ...mapActions("tv_shows", ["refreshSingle"]),
     ...mapActions("posters", ["loadPoster"]),
 
     goBack() {
       this.$router.go(-1);
+    },
+
+    notWatching() {
+      this.buttonNotWatchingLoading = true;
+      this.$store.dispatch("tv_shows/notWatching", this.id).then(() => {
+        this.buttonNotWatchingLoading = false;
+      });
+    },
+    watching() {
+      this.buttonWatchingLoading = true;
+      this.$store.dispatch("tv_shows/watching", this.id).then(() => {
+        this.buttonWatchingLoading = false;
+      });
+    },
+    collect() {
+      this.buttonCollectLoading = true;
+      this.$store.dispatch("tv_shows/collect", this.id).then(() => {
+        this.buttonCollectLoading = false;
+      });
     }
   },
   created() {
@@ -122,9 +172,13 @@ export default {
 
 <style lang="sass" scoped>
   @import '../../assets/css/style.sass'
+
+  section.action_buttons
+    margin-bottom: 2rem
+
   .tv_show_details > *:not(.top)
-    margin-left: 2em
-    margin-right: 2em
+    margin-left: 2rem
+    margin-right: 2rem
 
   hr
     border-top: 2px solid $grey-darker
@@ -133,8 +187,8 @@ export default {
     height: 66vh
     background-size: cover
     background-position: center
-    padding-left: 2em
-    padding-right: 2em
+    padding-left: 2rem
+    padding-right: 2rjem
 
     .tv_show_title
       position: absolute

@@ -8,11 +8,11 @@
             <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
           </div>
           <div class="episodetitle">
-            <h1 class="title">
-              <router-link :to="`/tv_shows/details/${episode.tv_show_id}`">
+            <router-link :to="`/tv_shows/details/${episode.tv_show_id}`">
+              <h1 class="title">
                 {{ episode.name }}
-              </router-link>
-            </h1>
+              </h1>
+            </router-link>
             <h2 class="subtitle">
               {{ episode.tmdb_details.name }}
             </h2>

@@ -67,8 +67,8 @@ export default [
     props: true
   },
   {
-    name: "tv_shows_calendar",
-    path: "/tv_shows_calendar",
+    name: "calendar",
+    path: "/calendar",
     component: TvShowsCalendar
   }
 ];
