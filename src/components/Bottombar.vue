@@ -49,10 +49,10 @@
       </div>
       <div class="navbar-item">
         <span class="has-text-centered">
-          <router-link to="/movies_search">
+          <router-link to="/search">
             <span
               v-bind:class="{
-                active: this.$route.path.includes('movies_search')
+                active: this.$route.path.includes('search')
               }"
             >
               <b-icon pack="fas" icon="search" size="is-medium" />

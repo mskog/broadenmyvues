@@ -1,6 +1,7 @@
 import Movies from "./components/movies/Movies.vue";
-import MoviesSearch from "./components/movies_search/MoviesSearch.vue";
-import MoviesSearchDetails from "./components/movies_search/ResultDetailsContainer.vue";
+import Search from "./components/search/Search.vue";
+import MoviesSearchDetails from "./components/search/movies/ResultDetailsContainer.vue";
+import TvShowsSearchDetails from "./components/search/tv_shows/ResultDetailsContainer.vue";
 import Episodes from "./components/episodes/Episodes.vue";
 import EpisodeDetails from "./components/episodes/EpisodeDetails.vue";
 import Login from "./components/Login.vue";
@@ -21,15 +22,21 @@ export default [
     redirect: "/movies/watched"
   },
   {
-    name: "movies_search",
-    path: "/movies_search",
-    component: MoviesSearch,
+    name: "search",
+    path: "/search",
+    component: Search,
     props: true
   },
   {
-    name: "movies_search_details",
-    path: "/movies_search/details/:imdb_id",
+    name: "search_movies_details",
+    path: "/search/movies/details/:imdb_id",
     component: MoviesSearchDetails,
+    props: true
+  },
+  {
+    name: "search_tv_shows_details",
+    path: "/search/tv_shows/details/:imdb_id",
+    component: TvShowsSearchDetails,
     props: true
   },
   {

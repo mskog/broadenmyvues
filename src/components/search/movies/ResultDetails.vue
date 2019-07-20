@@ -104,7 +104,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import '../../assets/css/style.sass'
+  @import '../../../assets/css/style.sass'
   .moviedetails > *:not(.top)
     margin-left: 2em
     margin-right: 2em

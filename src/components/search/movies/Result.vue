@@ -2,7 +2,7 @@
   <div class="movie">
     <div class="columns is-mobile">
       <div class="column is-one-third">
-        <router-link :to="`/movies_search/details/${imdb_id}`">
+        <router-link :to="`/search/movies/details/${imdb_id}`">
           <lazy-component
             @show="loadPoster({ type: 'movie', tmdb_id: tmdb_id })"
           >
@@ -11,7 +11,7 @@
         </router-link>
       </div>
       <div class="column">
-        <router-link :to="`/movies_search/details/${imdb_id}`">
+        <router-link :to="`/search/movies/details/${imdb_id}`">
           <h2 class="title">{{ title }}</h2>
         </router-link>
         <div class="is-size-7">
