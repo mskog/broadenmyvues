@@ -41,6 +41,24 @@
         <h2 class="title is-size-4">Synopsis</h2>
         <p>{{ overview }}</p>
       </div>
+      <div class="column">
+        <b-button
+          @click="sample"
+          class="button is-fullwidth is-success"
+          :loading="buttonSampleLoading"
+        >
+          Sample
+        </b-button>
+      </div>
+      <div class="column">
+        <b-button
+          @click="collect"
+          class="button is-fullwidth is-primary"
+          :loading="buttonCollectLoading"
+        >
+          Collect
+        </b-button>
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +91,13 @@ export default {
 
   components: { Ratings },
 
+  data() {
+    return {
+      buttonSampleLoading: false,
+      buttonCollectLoading: false
+    };
+  },
+
   computed: {
     backgroundStyle() {
       return {
@@ -93,6 +118,23 @@ export default {
 
     goBack() {
       this.$router.go(-1);
+    },
+
+    sample() {
+      this.buttonSampleLoading = true;
+      this.$store.dispatch("tv_shows_search/sample", this.ids.imdb).then(() => {
+        this.buttonSampleLoading = false;
+        this.$snackbar.open(`TV Show ${this.title} sampled.`);
+        this.$router.push("/tv_shows/details/" + this.ids.imdb);
+      });
+    },
+    collect() {
+      this.buttonCollectLoading = true;
+      this.$store
+        .dispatch("tv_shows_search/collect", this.ids.imdb)
+        .then(() => {
+          this.buttonCollectLoading = false;
+        });
     }
   }
 };

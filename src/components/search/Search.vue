@@ -20,7 +20,7 @@
           </b-field>
         </div>
       </div>
-      <b-tabs v-if="resultsLoaded" expanded>
+      <b-tabs v-if="resultsLoaded" expanded @change="lazyLoad">
         <b-tab-item v-if="resultsLoaded" label="Movies">
           <div class="movies">
             <MovieResults :results="movieResults" />
@@ -56,6 +56,11 @@ export default {
   methods: {
     clear() {
       this.query = "";
+    },
+
+    // ewwwww. But it works
+    lazyLoad() {
+      setTimeout(() => this.$Lazyload.lazyLoadHandler(), 0);
     },
 
     search() {

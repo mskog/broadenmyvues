@@ -59,6 +59,30 @@ export default {
             resolve();
           });
       });
+    },
+
+    sample(context, imdb_id) {
+      return new Promise(resolve => {
+        Vue.http
+          .patch(
+            `https://broad.mskog.com/api/v1/tv_shows/${imdb_id}/sample.json`
+          )
+          .then(() => {
+            resolve();
+          });
+      });
+    },
+
+    collect(context, imdb_id) {
+      return new Promise(resolve => {
+        Vue.http
+          .patch(
+            `https://broad.mskog.com/api/v1/tv_shows/${imdb_id}/collect.json`
+          )
+          .then(() => {
+            resolve();
+          });
+      });
     }
   }
 };

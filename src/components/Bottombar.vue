@@ -24,7 +24,7 @@
           <router-link to="/tv_shows">
             <span
               v-bind:class="{
-                active: this.$route.path.includes('tv_shows')
+                active: this.$route.path.startsWith('/tv_shows')
               }"
             >
               <b-icon pack="fas" icon="tv" size="is-medium" />

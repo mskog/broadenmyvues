@@ -8,7 +8,9 @@ export default {
 
   getters: {
     getTvShow: state => id => {
-      const item = state.items.find(item => item.id == id);
+      const item = state.items.find(item => {
+        return item.id == id || item.imdb_id == id;
+      });
       if (item) {
         return item;
       } else {
