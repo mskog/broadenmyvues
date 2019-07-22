@@ -34,22 +34,16 @@ export default {
   actions: {
     search(context, query) {
       return new Promise(resolve => {
-        Vue.http
-          .get(
-            `https://broad.mskog.com/api/v1/movie_searches.json?query=${query}`
-          )
-          .then(response => {
-            context.commit("refreshResults", { query, results: response.body });
-            resolve();
-          });
+        Vue.http.get(`movie_searches.json?query=${query}`).then(response => {
+          context.commit("refreshResults", { query, results: response.body });
+          resolve();
+        });
       });
     },
     loadReleaseInformation(context, imdb_id) {
       return new Promise(resolve => {
         Vue.http
-          .get(
-            `https://broad.mskog.com/api/v1/movie_acceptable_releases/${imdb_id}.json`
-          )
+          .get(`movie_acceptable_releases/${imdb_id}.json`)
           .then(response => {
             context.commit("loadReleaseinformation", {
               imdb_id,
@@ -62,7 +56,7 @@ export default {
     download(context, imdb_id) {
       return new Promise(resolve => {
         Vue.http
-          .post(`https://broad.mskog.com/api/v1/movie_downloads/`, {
+          .post(`movie_downloads/`, {
             query: imdb_id
           })
           .then(() => {
@@ -76,7 +70,7 @@ export default {
     waitlist(context, imdb_id) {
       return new Promise(resolve => {
         Vue.http
-          .post(`https://broad.mskog.com/api/v1/movie_waitlists/`, {
+          .post(`movie_waitlists/`, {
             imdb_id: imdb_id
           })
           .then(() => {

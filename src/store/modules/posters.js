@@ -29,15 +29,13 @@ export default {
       if (context.state[type][tmdb_id]) {
         return;
       }
-      Vue.http
-        .get(`https://broad.mskog.com/api/v1/posters/${tmdb_id}?type=${type}`)
-        .then(response => {
-          context.commit("loadPoster", {
-            type,
-            tmdb_id,
-            url: response.body.url
-          });
+      Vue.http.get(`posters/${tmdb_id}?type=${type}`).then(response => {
+        context.commit("loadPoster", {
+          type,
+          tmdb_id,
+          url: response.body.url
         });
+      });
     }
   }
 };

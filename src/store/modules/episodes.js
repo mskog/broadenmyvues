@@ -42,7 +42,7 @@ export default {
       const page = context.state.items.length / context.state.per_page;
 
       return Vue.http
-        .get("https://broad.mskog.com/api/v1/episodes.json", {
+        .get("episodes.json", {
           params: { page: page + 1 }
         })
         .then(response => {
@@ -51,19 +51,15 @@ export default {
     },
 
     refresh(context) {
-      Vue.http
-        .get("https://broad.mskog.com/api/v1/episodes.json")
-        .then(response => {
-          context.commit("refresh", { episodes: response.body });
-        });
+      Vue.http.get("episodes.json").then(response => {
+        context.commit("refresh", { episodes: response.body });
+      });
     },
 
     refreshSingle(context, id) {
-      Vue.http
-        .get(`https://broad.mskog.com/api/v1/episodes/${id}.json`)
-        .then(response => {
-          context.commit("refreshSingle", { episode: response.body });
-        });
+      Vue.http.get(`episodes/${id}.json`).then(response => {
+        context.commit("refreshSingle", { episode: response.body });
+      });
     }
   }
 };

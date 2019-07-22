@@ -19,20 +19,25 @@ export default {
     },
 
     hasDetails() {
-      return this.tv_show.tmdb_details !== undefined;
+      if (this.tv_show.tmdb_details === undefined) return false;
+      return Object.keys(this.tv_show.tmdb_details).length > 0;
     }
   },
-  watch: {
-    tv_show() {
-      if (!this.hasDetails) {
-        setTimeout(() => {
-          this.$store.dispatch("tv_shows/refreshSingle", this.id);
-        }, 2000);
+  methods: {
+    refresh() {
+      if (this.hasDetails) {
+        clearInterval(this.timer);
+        return;
+      } else {
+        console.log("dispatch");
+        console.log(this.hasDetails);
+        this.$store.dispatch("tv_shows/refreshSingle", this.id);
       }
     }
   },
   created() {
     this.$store.dispatch("tv_shows/refreshSingle", this.id);
+    this.timer = setInterval(this.refresh, 1000);
   }
 };
 </script>

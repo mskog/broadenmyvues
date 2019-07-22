@@ -36,52 +36,38 @@ export default {
   actions: {
     search(context, query) {
       return new Promise(resolve => {
-        Vue.http
-          .get(
-            `https://broad.mskog.com/api/v1/tv_show_searches.json?query=${query}`
-          )
-          .then(response => {
-            context.commit("refreshResults", { query, results: response.body });
-            resolve();
-          });
+        Vue.http.get(`tv_show_searches.json?query=${query}`).then(response => {
+          context.commit("refreshResults", { query, results: response.body });
+          resolve();
+        });
       });
     },
 
     loadDetails(context, imdb_id) {
       return new Promise(resolve => {
-        Vue.http
-          .get(`https://broad.mskog.com/api/v1/tv_show_details/${imdb_id}.json`)
-          .then(response => {
-            context.commit("refreshDetails", {
-              imdb_id,
-              data: response.body
-            });
-            resolve();
+        Vue.http.get(`tv_show_details/${imdb_id}.json`).then(response => {
+          context.commit("refreshDetails", {
+            imdb_id,
+            data: response.body
           });
+          resolve();
+        });
       });
     },
 
     sample(context, imdb_id) {
       return new Promise(resolve => {
-        Vue.http
-          .patch(
-            `https://broad.mskog.com/api/v1/tv_shows/${imdb_id}/sample.json`
-          )
-          .then(() => {
-            resolve();
-          });
+        Vue.http.patch(`tv_shows/${imdb_id}/sample.json`).then(() => {
+          resolve();
+        });
       });
     },
 
     collect(context, imdb_id) {
       return new Promise(resolve => {
-        Vue.http
-          .patch(
-            `https://broad.mskog.com/api/v1/tv_shows/${imdb_id}/collect.json`
-          )
-          .then(() => {
-            resolve();
-          });
+        Vue.http.patch(`tv_shows/${imdb_id}/collect.json`).then(() => {
+          resolve();
+        });
       });
     }
   }

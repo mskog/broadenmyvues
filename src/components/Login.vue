@@ -35,7 +35,7 @@ export default {
     submit() {
       const { username, password } = this;
       this.$http
-        .head("https://broad.mskog.com/api/v1/movies.json", {
+        .head("movies.json", {
           headers: {
             Authorization: "Basic " + btoa(username + ":" + password)
           }

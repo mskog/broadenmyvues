@@ -43,7 +43,7 @@ export default {
       const page = context.state.items.length / 10;
 
       return Vue.http
-        .get("https://broad.mskog.com/api/v1/tv_shows.json", {
+        .get("tv_shows.json", {
           params: { page: page + 1, per_page: 10 }
         })
         .then(response => {
@@ -53,7 +53,7 @@ export default {
 
     refresh(context) {
       Vue.http
-        .get("https://broad.mskog.com/api/v1/tv_shows.json", {
+        .get("tv_shows.json", {
           params: { per_page: 10 }
         })
         .then(response => {
@@ -62,34 +62,26 @@ export default {
     },
 
     refreshSingle(context, id) {
-      Vue.http
-        .get(`https://broad.mskog.com/api/v1/tv_shows/${id}.json`)
-        .then(response => {
-          context.commit("refreshSingle", { tv_show: response.body });
-        });
+      Vue.http.get(`tv_shows/${id}.json`).then(response => {
+        context.commit("refreshSingle", { tv_show: response.body });
+      });
     },
 
     collect(context, id) {
-      return Vue.http
-        .patch(`https://broad.mskog.com/api/v1/tv_shows/${id}/collect.json`)
-        .then(response => {
-          context.commit("refreshSingle", { tv_show: response.body });
-        });
+      return Vue.http.patch(`tv_shows/${id}/collect.json`).then(response => {
+        context.commit("refreshSingle", { tv_show: response.body });
+      });
     },
 
     watching(context, id) {
-      return Vue.http
-        .patch(`https://broad.mskog.com/api/v1/tv_shows/${id}/watching.json`)
-        .then(response => {
-          context.commit("refreshSingle", { tv_show: response.body });
-        });
+      return Vue.http.patch(`tv_shows/${id}/watching.json`).then(response => {
+        context.commit("refreshSingle", { tv_show: response.body });
+      });
     },
 
     notWatching(context, id) {
       return Vue.http
-        .patch(
-          `https://broad.mskog.com/api/v1/tv_shows/${id}/not_watching.json`
-        )
+        .patch(`tv_shows/${id}/not_watching.json`)
         .then(response => {
           context.commit("refreshSingle", { tv_show: response.body });
         });

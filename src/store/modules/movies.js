@@ -74,7 +74,7 @@ export default {
         context.state.per_page;
 
       return Vue.http
-        .get("https://broad.mskog.com/api/v1/movies.json", {
+        .get("movies.json", {
           params: { category, page: page + 1 }
         })
         .then(response => {
@@ -84,7 +84,7 @@ export default {
 
     refresh(context, category) {
       Vue.http
-        .get("https://broad.mskog.com/api/v1/movies.json", {
+        .get("movies.json", {
           params: { category }
         })
         .then(response => {
@@ -92,25 +92,19 @@ export default {
         });
     },
     refreshSingle(context, id) {
-      Vue.http
-        .get(`https://broad.mskog.com/api/v1/movies/${id}.json`)
-        .then(response => {
-          context.commit("refreshSingle", { movie: response.body });
-        });
+      Vue.http.get(`movies/${id}.json`).then(response => {
+        context.commit("refreshSingle", { movie: response.body });
+      });
     },
     force(context, id) {
-      Vue.http
-        .patch(`https://broad.mskog.com/api/v1/movie_waitlists/${id}/force`)
-        .then(() => {
-          context.commit("setAsDownloaded", { id });
-        });
+      Vue.http.patch(`movie_waitlists/${id}/force`).then(() => {
+        context.commit("setAsDownloaded", { id });
+      });
     },
     destroy(context, id) {
-      Vue.http
-        .delete(`https://broad.mskog.com/api/v1/movie_waitlists/${id}`)
-        .then(() => {
-          context.commit("destroy", { id });
-        });
+      Vue.http.delete(`movie_waitlists/${id}`).then(() => {
+        context.commit("destroy", { id });
+      });
     }
   }
 };

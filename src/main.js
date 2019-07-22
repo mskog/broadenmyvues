@@ -44,6 +44,12 @@ Vue.use(Buefy);
 import InfiniteLoading from "vue-infinite-loading";
 Vue.use(InfiniteLoading, { system: { throttleLimit: 500 } });
 
+if (process.env["NODE_ENV"] === "development") {
+  Vue.http.options.root = "http://localhost:5000/api/v1";
+} else {
+  Vue.http.options.root = "https://broad.mskog.com/api/v1";
+}
+
 new Vue({
   render: h => h(App),
   router,
