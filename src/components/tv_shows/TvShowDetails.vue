@@ -127,17 +127,6 @@ export default {
     },
     ...mapGetters("tv_shows", ["getTvShow, getPoster"])
   },
-  watch: {
-    id() {
-      if (this.id === undefined) {
-        return;
-      }
-      this.loadPoster({
-        tmdb_id: this.tmdb_details.id,
-        type: "tv_show"
-      });
-    }
-  },
   methods: {
     ...mapActions("tv_shows", ["refreshSingle"]),
     ...mapActions("posters", ["loadPoster"]),
@@ -164,6 +153,13 @@ export default {
         this.buttonCollectLoading = false;
       });
     }
+  },
+
+  created() {
+    this.loadPoster({
+      tmdb_id: this.tmdb_details.id,
+      type: "tv_show"
+    });
   }
 };
 </script>

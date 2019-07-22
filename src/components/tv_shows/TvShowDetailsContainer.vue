@@ -29,8 +29,6 @@ export default {
         clearInterval(this.timer);
         return;
       } else {
-        console.log("dispatch");
-        console.log(this.hasDetails);
         this.$store.dispatch("tv_shows/refreshSingle", this.id);
       }
     }
