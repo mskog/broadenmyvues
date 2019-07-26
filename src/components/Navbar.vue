@@ -1,22 +1,48 @@
 <template>
   <nav
-    class="navbar is-fixed-top"
+    class="navbar is-fixed-top is-hidden-mobile is-spaced"
     role="navigation"
     aria-label="main navigation"
   >
-    <div class="navbar-brand">
-      <div class="navbar-item">
-        <h1 class="is-size-3 has-text-white">Movies</h1>
+    <div class="container">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <router-link class="navbar-item has-text-white" to="/">
+            <b-icon pack="fas" icon="film" />
+            <span>Movies</span>
+          </router-link>
+          <router-link class="navbar-item has-text-white" to="/tv_shows">
+            <b-icon pack="fas" icon="tv" />
+            <span>TV Shows</span>
+          </router-link>
+          <router-link class="navbar-item has-text-white" to="/episodes">
+            <b-icon pack="fas" icon="tv" />
+            <span>Episodes</span>
+          </router-link>
+          <router-link class="navbar-item has-text-white" to="/search">
+            <b-icon pack="fas" icon="tv" />
+            <span>Search</span>
+          </router-link>
+          <router-link class="navbar-item has-text-white" to="/calendar">
+            <b-icon pack="fas" icon="calendar" />
+            <span>Calendar</span>
+          </router-link>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <style lang="sass" scoped>
-  @import '../assets/css/variables.sass'
+@import '../assets/css/variables.sass'
 
-  nav
-    background: $background
-    padding-left: 1em
+nav
+  padding-left: 1em
+  background: $background-risen
+
+  a:hover, a:visited
+    background-color: $background-risen
+
+  span.icon
+    margin-right: 0.4rem
 </style>
-

@@ -1,9 +1,10 @@
 <template>
   <div id="app">
+    <Navbar />
     <keep-alive :max="10">
       <router-view :key="$route.fullPath"></router-view>
     </keep-alive>
-    <Bottombar />
+    <Bottombar class="is-hidden-desktop" />
   </div>
 </template>
 
@@ -18,6 +19,4 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  section
-    padding-top: 1em
 </style>
