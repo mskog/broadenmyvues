@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar is-fixed-top is-hidden-mobile is-spaced"
+    class="navbar is-fixed-top is-hidden-mobile is-hidden-tablet-only is-spaced"
     role="navigation"
     aria-label="main navigation"
   >
@@ -40,8 +40,11 @@ nav
   padding-left: 1em
   background: $background-risen
 
-  a:hover, a:visited
+  a:visited
     background-color: $background-risen
+
+  a:hover
+    background-color: lighten($background-risen, 20%)
 
   span.icon
     margin-right: 0.4rem

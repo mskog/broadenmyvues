@@ -1,5 +1,5 @@
 <template>
-  <div class="movie columns is-mobile">
+  <div class="movie_content">
     <b-icon
       v-if="movie.download_at && category === 'waitlist'"
       class="download"
@@ -7,7 +7,7 @@
       icon="download"
       size="is-small"
     ></b-icon>
-    <div class="column is-one-third">
+    <div class="column is-3-desktop is-4-mobile is-4-tablet">
       <lazy-component
         @show="loadPoster({ type: 'movie', tmdb_id: movie.tmdb_id })"
       >
@@ -16,7 +16,7 @@
         </router-link>
       </lazy-component>
     </div>
-    <div class="column">
+    <div class="column title">
       <router-link :to="`/movies/details/${movie.id}`">
         <h2 class="is-size-5 title">{{ movie.title }}</h2>
       </router-link>
@@ -71,32 +71,29 @@ export default {
 <style lang="sass" scoped>
   @import '../../assets/css/style.sass'
 
-  div.movie
+  div.movie_content
     background: $background-risen
-    border-radius: 3px
+    border-radius: 5px
     position: relative
-    height: 9em
-    padding-top: 0.5rem
+    height: 10rem
     box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
 
   img.poster
-    bottom: 1.5rem
+    bottom: 2rem
     height: 100%
-    width: 30%
+    max-width: 30%
     position: absolute
-    border-radius: 3px
+    border-radius: 7px
     box-shadow: 0px 2px 3px rgba(0,0,0,0.75)
 
-  .download
-    position: absolute
-    right: 1rem
-    top: 1rem
+  .title
+    padding-top: 0.7rem
 
   h2
     letter-spacing: 1px
 
   h2.subtitle.ratings
-    font-size: 12px
+    font-size: 0.8rem
     color: orange
     margin-bottom: 0.5rem
 </style>

@@ -1,10 +1,18 @@
 <template>
   <div class="movies">
-    <ul>
-      <li v-for="movie in movies" v-bind:key="movie.id">
-        <Movie :movie="movie" :category="category">{{ movies }}</Movie>
-      </li>
-    </ul>
+    <div class="columns is-multiline">
+      <div
+        v-for="movie in movies"
+        v-bind:key="movie.id"
+        class="movie column is-half"
+      >
+        <Movie
+          :movie="movie"
+          :category="category"
+          class="columns is-mobile"
+        ></Movie>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,9 +28,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  ul
-    padding-top: 5em
+  .movies
+    margin-top: 3rem
 
-  li
-    margin-bottom: 4em
+  .movie
+    padding-top: 4rem
+    padding-right: 2rem
 </style>
