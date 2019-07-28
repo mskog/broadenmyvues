@@ -45,6 +45,6 @@ Vue.filter("capitalize", function(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 });
 
-Vue.filter("thumb", function(src) {
-  return `https://thumbs.mskog.com/${src}`;
+Vue.filter("thumb", function(src, size = 1080) {
+  return `https://thumbs.mskog.com/${size}x/${src}`;
 });

@@ -8,7 +8,7 @@
       >
         <router-link :to="`/tv_shows/details/${tv_show.id}`">
           <img
-            :src="getPoster('tv_show', tv_show.tmdb_details.id)"
+            :src="getPoster('tv_show', tv_show.tmdb_details.id) | thumb(240)"
             class="poster image"
           />
         </router-link>

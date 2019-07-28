@@ -12,7 +12,10 @@
         @show="loadPoster({ type: 'movie', tmdb_id: movie.tmdb_id })"
       >
         <router-link :to="`/movies/details/${movie.id}`">
-          <img :src="getPoster('movie', movie.tmdb_id)" class="poster" />
+          <img
+            :src="getPoster('movie', movie.tmdb_id) | thumb(240)"
+            class="poster"
+          />
         </router-link>
       </lazy-component>
     </div>

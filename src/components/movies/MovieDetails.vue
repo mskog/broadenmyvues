@@ -3,10 +3,10 @@
     <b-loading :active="loading" :is-full-page="true"></b-loading>
     <div class="moviedetails">
       <div class="top" :style="backgroundStyle">
-        <div class="backbutton" @click="goBack">
+        <div class="is-hidden-desktop backbutton" @click="goBack">
           <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
         </div>
-        <div class="imdbLink">
+        <div class="is-hidden-desktop imdbLink">
           <a :href="imdbUrl">
             <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
           </a>
@@ -56,16 +56,17 @@
       </div>
       <hr />
       <div v-if="!downloaded" class="columns">
-        <div v-if="movie.best_release" class="column">
+        <div v-if="movie.best_release" class="column is-2">
           <button @click="force" class="button is-fullwidth is-primary">
             Force
           </button>
         </div>
-        <div class="column">
+        <div class="column is-2">
           <button @click="destroy" class="button is-fullwidth is-danger">
             Remove
           </button>
         </div>
+        <div class="column"></div>
       </div>
       <div class="synopsis">
         <h2 class="title is-size-4">Synopsis</h2>
@@ -162,8 +163,9 @@ export default {
   hr
     border-top: 2px solid $grey-darker
   .top
+    margin-top: -60px
     position: relative
-    height: 66vh
+    height: 50vh
     background-size: cover
     background-position: center
     padding-left: 2em
