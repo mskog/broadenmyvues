@@ -166,6 +166,8 @@ export default {
     margin-top: -60px
     position: relative
     height: 50vh
+    @include mobile
+      height: 66vh
     background-size: cover
     background-position: center
     padding-left: 2em
