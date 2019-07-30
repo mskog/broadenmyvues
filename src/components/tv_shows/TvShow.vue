@@ -1,6 +1,6 @@
 <template>
-  <div class="movie columns is-mobile">
-    <div class="column is-one-third">
+  <div class="tv_show_content columns is-mobile">
+    <div class="column is-3-desktop is-4-table is-4-mobile">
       <lazy-component
         @show="
           loadPoster({ type: 'tv_show', tmdb_id: tv_show.tmdb_details.id })
@@ -14,7 +14,7 @@
         </router-link>
       </lazy-component>
     </div>
-    <div class="column">
+    <div class="column title">
       <router-link :to="`/tv_shows/details/${tv_show.id}`">
         <h2 class="is-size-5 title">{{ tv_show.name }}</h2>
         <h2 class="subtitle ratings">
@@ -67,31 +67,38 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  div.movie
-    background: #1E2748
-    border-radius: 3px
+  @import '../../assets/css/style.sass'
+
+  div.tv_show_content
+    background: $background-risen
+    border-radius: 5px
     position: relative
-    padding: 7.5px
-    height: 9em
+    // padding: 7.5px
+    height: 10rem
     box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
 
   img.poster
-    bottom: 1.5em
-    height: 9em
+    bottom: 2rem
+    height: 100%
+    max-width: 30%
     position: absolute
-    border-radius: 3px
+    border-radius: 7px
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.75)
 
   .download
     position: absolute
     right: 15px
     top: 15px
 
+  .title
+    padding-top: 0.7rem
+
   h2
     letter-spacing: 1px
 
   h2.subtitle.ratings
-    font-size: 12px
+    font-size: 0.8rem
     color: orange
-    margin-bottom: 15px
+    margin-bottom: 0.5rem
 </style>
 

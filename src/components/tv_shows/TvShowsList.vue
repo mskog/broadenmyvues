@@ -1,10 +1,14 @@
 <template>
-  <div class="movies">
-    <ul>
-      <li v-for="tv_show in tv_shows" v-bind:key="tv_show.id">
-        <TvShow :tv_show="tv_show"></TvShow>
-      </li>
-    </ul>
+  <div class="tv_shows">
+    <div class="columns is-multiline">
+      <div
+        v-for="tv_show in tv_shows"
+        v-bind:key="tv_show.id"
+        class="tv_show column is-half"
+      >
+        <TvShow :tv_show="tv_show" class="columns is-mobile"></TvShow>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,9 +24,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  ul
-    padding-top: 5em
+  .tv_shows
+    margin-top: 3rem
 
-  li
-    margin-bottom: 4em
+  .tv_show
+    padding-top: 4rem
+    padding-right: 2rem
 </style>
