@@ -40,10 +40,11 @@ export default {
 };
 </script>
 
-<style lang="sass">
-  .b-tabs > .tab-content
-    padding-left: 0 !important
-    padding-right: 0 !important
+<style lang="scss">
+.b-tabs > .tab-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 </style>
 
 

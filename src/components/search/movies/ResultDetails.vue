@@ -103,40 +103,50 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  @import '../../../assets/css/style.sass'
-  .moviedetails > *:not(.top)
-    margin-left: 2em
-    margin-right: 2em
+<style lang="scss" scoped>
+@import "../../../assets/css/style.scss";
 
-  hr
-    border-top: 2px solid $grey-darker
-  .top
-    position: relative
-    height: 66vh
-    background-size: cover
-    background-position: center
-    padding-left: 2em
-    padding-right: 2em
+.moviedetails > *:not(.top) {
+  margin-left: 2em;
+  margin-right: 2em;
+}
 
-    .movietitle
-      position: absolute
-      bottom: 25px
-    .backbutton
-      position: fixed
-      top: 20px
-      left: 20px
+hr {
+  border-top: 2px solid $grey-darker;
+}
 
-    .imdbLink
-      position: fixed
-      top: 20px
-      right: 20px
+.top {
+  position: relative;
+  height: 66vh;
+  background-size: cover;
+  background-position: center;
+  padding-left: 2em;
+  padding-right: 2em;
 
-      a
-        color: $text
-        text-decoration: inherit
+  .movietitle {
+    position: absolute;
+    bottom: 25px;
+  }
+  .backbutton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
 
-  .synopsis
-    padding-bottom: 50px
+  .imdbLink {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    a {
+      color: $text;
+      text-decoration: inherit;
+    }
+  }
+}
+
+.synopsis {
+  padding-bottom: 50px;
+}
 </style>
 

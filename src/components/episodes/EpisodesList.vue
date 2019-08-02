@@ -21,10 +21,12 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  ul
-    padding-top: 5em
+<style lang="scss" scoped>
+ul {
+  padding-top: 5em;
+}
 
-  li
-    margin-bottom: 4em
+li {
+  margin-bottom: 4em;
+}
 </style>

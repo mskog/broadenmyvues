@@ -28,21 +28,25 @@
   </nav>
 </template>
 
-<style lang="sass" scoped>
-@import '../assets/css/variables.sass'
+<style lang="scss" scoped>
+@import "../assets/css/variables.scss";
 
-nav
-  padding-left: 1em
-  background-color: rgba(21, 26, 48, 0.6)
+nav {
+  padding-left: 1em;
+  background-color: rgba(21, 26, 48, 0.6);
 
-  a
-    text-transform: uppercase
-    color: $white
-    font-weight: bolder
+  a {
+    text-transform: uppercase;
+    color: $white;
+    font-weight: bolder;
+  }
 
-  a:hover
-    background-color: lighten($background-risen, 20%)
+  a:hover {
+    background-color: lighten($background-risen, 20%);
+  }
 
-  span.icon
-    margin-right: 0.4rem
+  span.icon {
+    margin-right: 0.4rem;
+  }
+}
 </style>

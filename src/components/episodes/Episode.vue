@@ -41,9 +41,7 @@ export default {
         width: "auto",
         "background-size": "cover",
         "background-repeat": "none",
-        "background-image": `linear-gradient(rgba(21,26,48,0.4), rgba(21,26,48,0.8)), url(${
-          this.stillImage
-        })`
+        "background-image": `linear-gradient(rgba(21,26,48,0.4), rgba(21,26,48,0.8)), url(${this.stillImage})`
       };
     },
 
@@ -54,31 +52,36 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  a
-    text-decoration: none
-    color: inherit
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  .episode
-    position: relative
-    width: 100%
+.episode {
+  position: relative;
+  width: 100%;
+}
 
-  .watched
-    position: absolute
-    top: 20px
-    right: 20px
+.watched {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 
-  .content
-    position: absolute
-    bottom: 20px
-    left: 30px
+.content {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
 
-    .details
-      overflow: hidden
+  .details {
+    overflow: hidden;
+  }
 
-    .title
-      padding-bottom: 5px
-
+  .title  {
+    padding-bottom: 5px;
+  }
+}
 </style>
 
 

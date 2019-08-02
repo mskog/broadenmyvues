@@ -23,8 +23,8 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-
-  .rating
-    font-weight: bold
+<style lang="scss" scoped>
+.rating {
+  font-weight: bold;
+}
 </style>

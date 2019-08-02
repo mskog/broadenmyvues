@@ -27,11 +27,13 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  .movies
-    margin-top: 3rem
+<style lang="scss" scoped>
+.movies  {
+  margin-top: 3rem;
+}
 
-  .movie
-    padding-top: 4rem
-    padding-right: 2rem
+.movie {
+  padding-top: 4rem;
+  padding-right: 2rem;
+}
 </style>

@@ -90,19 +90,21 @@ export default {
 </script>
 
 
-<style lang="sass" scoped>
-  @import '../assets/css/variables.sass'
+<style lang="scss" scoped>
+@import "../assets/css/variables.scss";
 
-  nav
-    background: $background
+nav {
+  background: $background;
+}
 
-  .navbar-item
-    color: $title-color
-    padding: 0.3rem
-    width: 20%
+.navbar-item {
+  color: $title-color;
+  padding: 0.3rem;
+  width: 20%;
+}
 
-  span.active
-    color: $white
-
+span.active {
+  color: $white;
+}
 </style>
 

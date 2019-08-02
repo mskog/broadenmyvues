@@ -81,11 +81,14 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  .title
-    letter-spacing: 1.5px
-  .tabs
-    margin-bottom: 0 !important
-  li.is-active
-    font-weight: bolder
+<style lang="scss" scoped>
+.title {
+  letter-spacing: 1.5px;
+}
+.tabs {
+  margin-bottom: 0 !important;
+}
+li.is-active {
+  font-weight: bolder;
+}
 </style>

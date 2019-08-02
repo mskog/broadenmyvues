@@ -66,39 +66,44 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  @import '../../assets/css/style.sass'
+<style lang="scss" scoped>
+@import "../../assets/css/style.scss";
 
-  div.tv_show_content
-    background: $background-risen
-    border-radius: 5px
-    position: relative
-    // padding: 7.5px
-    height: 10rem
-    box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
+div.tv_show_content {
+  background: $background-risen;
+  border-radius: 5px;
+  position: relative;
+  height: 10rem;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.75);
+}
 
-  img.poster
-    bottom: 2rem
-    height: 100%
-    max-width: 30%
-    position: absolute
-    border-radius: 7px
-    box-shadow: 0px 2px 3px rgba(0,0,0,0.75)
+img.poster {
+  bottom: 2rem;
+  height: 100%;
+  max-width: 30%;
+  position: absolute;
+  border-radius: 7px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
+}
 
-  .download
-    position: absolute
-    right: 15px
-    top: 15px
+.download {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
 
-  .title
-    padding-top: 0.7rem
+.title {
+  padding-top: 0.7rem;
+}
 
-  h2
-    letter-spacing: 1px
+h2 {
+  letter-spacing: 1px;
+}
 
-  h2.subtitle.ratings
-    font-size: 0.8rem
-    color: orange
-    margin-bottom: 0.5rem
+h2.subtitle.ratings {
+  font-size: 0.8rem;
+  color: orange;
+  margin-bottom: 0.5rem;
+}
 </style>
 

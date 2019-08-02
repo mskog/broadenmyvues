@@ -23,11 +23,13 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  .tv_shows
-    margin-top: 3rem
+<style lang="scss" scoped>
+.tv_shows {
+  margin-top: 3rem;
+}
 
-  .tv_show
-    padding-top: 4rem
-    padding-right: 2rem
+.tv_show {
+  padding-top: 4rem;
+  padding-right: 2rem;
+}
 </style>

@@ -58,28 +58,31 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  div.tv_show
-    background: #1E2748
-    border-radius: 3px
-    position: relative
-    padding: 7.5px
-    min-height: 9em
-    box-shadow: 4px 4px 7px rgba(0,0,0,0.75)
+<style lang="scss" scoped>
+div.tv_show {
+  background: #1e2748;
+  border-radius: 3px;
+  position: relative;
+  padding: 7.5px;
+  min-height: 9em;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.75);
 
-    h2
-      letter-spacing: 1px
-      margin-bottom: 0.5em
+  h2 {
+    letter-spacing: 1px;
+    margin-bottom: 0.5em;
+  }
 
-    div.overview
-      overflow: hidden
-      position: relative
+  div.overview {
+    overflow: hidden;
+    position: relative;
+  }
+}
 
-  img.poster
-    top: -1.5em
-    height: 9em
-    width: 6em
-    position: absolute
-    border-radius: 3px
-
+img.poster {
+  top: -1.5em;
+  height: 9em;
+  width: 6em;
+  position: absolute;
+  border-radius: 3px;
+}
 </style>

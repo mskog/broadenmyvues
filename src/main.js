@@ -37,7 +37,7 @@ Vue.http.headers.common["Authorization"] = "Basic " + auth;
 
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
-import "./assets/css/style.sass";
+import "./assets/css/style.scss";
 
 Vue.use(Buefy);
 

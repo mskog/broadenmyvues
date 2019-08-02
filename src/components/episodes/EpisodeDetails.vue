@@ -83,34 +83,43 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  @import '../../assets/css/style.sass'
-  .episodedetails > *:not(.top)
-    margin-left: 2em
-    margin-right: 2em
+<style lang="scss" scoped>
+@import "../../assets/css/style.scss";
 
-  hr
-    border-top: 2px solid $grey-darker
-  .top
-    position: relative
-    height: 33vh
-    background-size: cover
-    background-position: center
-    padding-left: 2em
-    padding-right: 2em
+.episodedetails > *:not(.top) {
+  margin-left: 2em;
+  margin-right: 2em;
+}
 
-    .episodetitle
-      position: absolute
-      bottom: 25px
-    .backbutton
-      position: fixed
-      top: 20px
-      left: 20px
+hr {
+  border-top: 2px solid $grey-darker;
+}
 
-      a
-        color: $text
-        text-decoration: inherit
+.top {
+  position: relative;
+  height: 33vh;
+  background-size: cover;
+  background-position: center;
+  padding-left: 2em;
+  padding-right: 2em;
 
-  .synopsis
-    padding-bottom: 50px
+  .episodetitle {
+    position: absolute;
+    bottom: 25px;
+  }
+  .backbutton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    a {
+      color: $text;
+      text-decoration: inherit;
+    }
+  }
+}
+
+.synopsis {
+  padding-bottom: 50px;
+}
 </style>

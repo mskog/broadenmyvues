@@ -38,20 +38,23 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  @import '../../assets/css/style.sass'
+<style lang="scss" scoped>
+@import "../../assets/css/style.scss";
 
-  div.episode
-    border-radius: 3px
-    h2.title
-      margin-bottom: 0
+div.episode  {
+  border-radius: 3px;
+  h2.title {
+    margin-bottom: 0;
+  }
+}
 
-  img.poster
-    border-radius: 3px
-    box-shadow: 0px 2px 3px rgba(0,0,0,0.75)
+img.poster {
+  border-radius: 3px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
+}
 
-  h2
-    letter-spacing: 1px
-
+h2 {
+  letter-spacing: 1px;
+}
 </style>
 
