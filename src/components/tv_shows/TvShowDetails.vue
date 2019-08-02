@@ -2,13 +2,15 @@
   <div>
     <div class="tv_show_details">
       <div class="top" :style="backgroundStyle">
-        <div class="backbutton" @click="goBack">
-          <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
-        </div>
-        <div class="imdbLink">
-          <a :href="imdbUrl">
-            <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
-          </a>
+        <div class="is-hidden-desktop">
+          <div class="backbutton" @click="goBack">
+            <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
+          </div>
+          <div class="imdbLink">
+            <a :href="imdbUrl">
+              <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
+            </a>
+          </div>
         </div>
         <div class="tv_show_title">
           <h1 class="title">
