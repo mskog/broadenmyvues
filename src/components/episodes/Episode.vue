@@ -14,6 +14,7 @@
       <div class="content">
         <h2
           class="is-marginless title is-size-4 has-text-white has-text-weight-bold"
+          v-if="includeShowDetails"
         >
           {{ episode.name }}
         </h2>
@@ -24,6 +25,9 @@
           -
           {{ episode.tmdb_details.name }}
         </p>
+        <p v-if="!includeShowDetails" class="is-size-6">
+          {{ episode.tmdb_details.overview | truncate(100) }}
+        </p>
       </div>
     </router-link>
   </div>
@@ -32,16 +36,16 @@
 <script>
 export default {
   name: "episode",
-  props: ["episode"],
+  props: ["episode", "includeShowDetails"],
 
   computed: {
     backgroundStyle() {
       return {
-        "min-height": "200px",
+        "min-height": "150px",
         width: "auto",
         "background-size": "cover",
         "background-repeat": "none",
-        "background-image": `linear-gradient(rgba(21,26,48,0.4), rgba(21,26,48,0.8)), url(${this.stillImage})`
+        "background-image": `linear-gradient(to bottom, rgba(21,26,48,0.5), rgba(21,26,48,0.8)), url(${this.stillImage})`
       };
     },
 
@@ -54,8 +58,13 @@ export default {
 
 <style lang="scss" scoped>
 a {
-  text-decoration: none;
+  text-decoration: inherit;
   color: inherit;
+
+  &:hover {
+    text-decoration: inherit;
+    color: inherit;
+  }
 }
 
 .episode {
@@ -65,8 +74,8 @@ a {
 
 .watched {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1em;
+  right: 1em;
 }
 
 .content {
@@ -76,6 +85,7 @@ a {
 
   .details {
     overflow: hidden;
+    margin-bottom: 0;
   }
 
   .title  {

@@ -48,3 +48,8 @@ Vue.filter("capitalize", function(value) {
 Vue.filter("thumb", function(src, size = 1080) {
   return `https://thumbs.mskog.com/${size}x/${src}`;
 });
+
+Vue.filter("truncate", function(string, size) {
+  if (string === null) return "";
+  return string.substring(0, size) + "...";
+});

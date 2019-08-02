@@ -5,7 +5,7 @@
       v-for="episode in episodes"
       v-bind:key="episode.id"
     >
-      <Episode :episode="episode" />
+      <Episode :episode="episode" :includeShowDetails="includeShowDetails" />
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 import Episode from "./Episode.vue";
 
 export default {
-  props: ["episodes"],
+  props: ["episodes", "includeShowDetails"],
   components: {
     Episode
   }

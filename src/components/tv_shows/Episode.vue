@@ -15,7 +15,7 @@
           {{ episode.episode }}. {{ episode.tmdb_details.name }}
         </h2>
       </router-link>
-      <div class="overview is-size-7">{{ truncatedOverview }}</div>
+      <div class="overview is-size-7">{{ overview | truncate(100) }}</div>
     </div>
   </div>
 </template>
@@ -25,14 +25,14 @@ export default {
   props: ["episode"],
 
   computed: {
-    truncatedOverview() {
+    overview() {
       if (
         this.episode.tmdb_details === undefined ||
         this.episode.tmdb_details.overview === undefined
       ) {
         return "";
       }
-      return this.episode.tmdb_details.overview.substring(0, 50) + "...";
+      return this.episode.tmdb_details.overview;
     }
   }
 };

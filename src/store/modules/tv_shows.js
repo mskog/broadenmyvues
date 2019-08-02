@@ -44,7 +44,7 @@ export default {
 
       return Vue.http
         .get("tv_shows.json", {
-          params: { page: page + 1, per_page: 10 }
+          params: { page: page + 1, per_page: 20 }
         })
         .then(response => {
           context.commit("loadMore", { tv_shows: response.body });
@@ -54,7 +54,7 @@ export default {
     refresh(context) {
       Vue.http
         .get("tv_shows.json", {
-          params: { per_page: 10 }
+          params: { per_page: 20 }
         })
         .then(response => {
           context.commit("refresh", { tv_shows: response.body });

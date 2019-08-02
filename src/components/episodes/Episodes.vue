@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
-      <EpisodesList :episodes="episodes" />
+      <EpisodesList :episodes="episodes" includeShowDetails="true" />
       <infinite-loading
         v-if="episodes.length > 0"
         @infinite="infiniteHandler"
