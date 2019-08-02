@@ -23,9 +23,9 @@
             episode | seasonEpisode
           }}</span>
           -
-          {{ episode.tmdb_details.name }}
+          {{ episode.tmdb_details.name | truncate(30) }}
         </p>
-        <p v-if="!includeShowDetails" class="is-size-6">
+        <p v-if="!includeShowDetails" class="overview is-size-6">
           {{ episode.tmdb_details.overview | truncate(100) }}
         </p>
       </div>
@@ -45,7 +45,7 @@ export default {
         width: "auto",
         "background-size": "cover",
         "background-repeat": "none",
-        "background-image": `linear-gradient(to bottom, rgba(21,26,48,0.5), rgba(21,26,48,0.8)), url(${this.stillImage})`
+        "background-image": `linear-gradient(to bottom, rgba(21,26,48,0.6), rgba(21,26,48,0.9)), url(${this.stillImage})`
       };
     },
 
@@ -90,6 +90,10 @@ a {
 
   .title  {
     padding-bottom: 5px;
+  }
+
+  .overview {
+    max-lines: 1;
   }
 }
 </style>

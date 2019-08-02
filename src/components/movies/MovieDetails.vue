@@ -162,7 +162,7 @@ export default {
   margin-right: 2em;
 }
 
-hr  {
+hr {
   border-top: 2px solid $grey-darker;
 }
 
@@ -199,10 +199,9 @@ hr  {
       text-decoration: inherit;
     }
   }
-
-  .synopsis {
-    padding-bottom: 50px;
-  }
+}
+.synopsis {
+  padding-bottom: 50px;
 }
 </style>
 

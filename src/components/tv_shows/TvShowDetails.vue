@@ -181,7 +181,9 @@ section.action_buttons {
 hr {
   border-top: 2px solid $grey-darker;
 }
+
 .top {
+  margin-top: -60px;
   position: relative;
   height: 66vh;
   background-size: cover;

@@ -4,7 +4,7 @@
     <div v-if="!loading">
       <div class="episodedetails">
         <div class="top" :style="backgroundStyle">
-          <div class="backbutton" @click="goBack">
+          <div class="backbutton is-hidden-desktop" @click="goBack">
             <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
           </div>
           <div class="episodetitle">
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 import { mapActions } from "vuex";
 export default {
   props: ["id"],
@@ -58,11 +59,12 @@ export default {
     },
     backgroundStyle() {
       return {
-        "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${this.stillImage})`
+        "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${Vue.filter(
+          "thumb",
+          this.episode.still,
+          1080
+        )})`
       };
-    },
-    stillImage() {
-      return "https://thumbs.mskog.com/" + this.episode.still;
     }
   },
   methods: {
@@ -96,8 +98,12 @@ hr {
 }
 
 .top {
+  margin-top: -60px;
   position: relative;
-  height: 33vh;
+  height: 50vh;
+  @include mobile {
+    height: 33vh;
+  }
   background-size: cover;
   background-position: center;
   padding-left: 2em;
@@ -109,8 +115,8 @@ hr {
   }
   .backbutton {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 1rem;
+    left: 1rem;
 
     a {
       color: $text;

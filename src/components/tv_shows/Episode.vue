@@ -12,10 +12,10 @@
     <div class="column">
       <router-link :to="`/episodes/details/${episode.id}`">
         <h2 class="is-size-7 title">
-          {{ episode.episode }}. {{ episode.tmdb_details.name }}
+          {{ episode.episode }}. {{ episode.tmdb_details.name | truncate(30) }}
         </h2>
       </router-link>
-      <div class="overview is-size-7">{{ overview | truncate(100) }}</div>
+      <div class="overview is-size-7">{{ overview | truncate(75) }}</div>
     </div>
   </div>
 </template>
