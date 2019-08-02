@@ -59,6 +59,7 @@ export default {
     },
     backgroundStyle() {
       return {
+        "background-position": "top",
         "background-image": `linear-gradient(to top, #151A30, #151A30 0%, transparent), url(${Vue.filter(
           "thumb",
           this.episode.still,
