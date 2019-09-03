@@ -50,7 +50,7 @@ Vue.filter("thumb", function(src, size = 1080) {
 });
 
 Vue.filter("truncate", function(string, size) {
-  if (string === null) return "";
+  if (string === null || string === undefined) return "";
   if (string.length <= size) return string;
   return string.substring(0, size) + "...";
 });

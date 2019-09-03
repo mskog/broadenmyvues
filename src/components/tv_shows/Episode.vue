@@ -4,7 +4,7 @@
       <lazy-component>
         <figure class="image is-16by9">
           <router-link :to="`/episodes/details/${episode.id}`">
-            <img :src="episode.still | thumb" />
+            <img :src="still" />
           </router-link>
         </figure>
       </lazy-component>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 export default {
   props: ["episode"],
 
@@ -33,6 +34,9 @@ export default {
         return "";
       }
       return this.episode.tmdb_details.overview;
+    },
+    still() {
+      return Vue.filter("thumb")(this.episode.still, 1080);
     }
   }
 };

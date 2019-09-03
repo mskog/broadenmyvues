@@ -6,18 +6,18 @@
         v-bind:key="`season-${season[0]}`"
         :label="'Season ' + season[0]"
       >
-        <lazy-component>
-          <div class="is-hidden-tablet is-hidden-desktop columns">
-            <div
-              class="column"
-              v-for="episode in season[1]"
-              v-bind:key="episode.id"
-            >
-              <Episode :episode="episode" />
-            </div>
+        <!-- <lazy-component> -->
+        <div class="is-hidden-tablet is-hidden-desktop columns">
+          <div
+            class="column"
+            v-for="episode in season[1]"
+            v-bind:key="episode.id"
+          >
+            <Episode :episode="episode" />
           </div>
-          <EpisodesList class="is-hidden-mobile" :episodes="season[1]" />
-        </lazy-component>
+        </div>
+        <EpisodesList class="is-hidden-mobile" :episodes="season[1]" />
+        <!-- </lazy-component> -->
       </b-tab-item>
     </b-tabs>
   </div>
