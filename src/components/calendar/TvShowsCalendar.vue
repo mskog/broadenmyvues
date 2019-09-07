@@ -3,28 +3,32 @@
     <b-loading :active="loading" :is-full-page="true"></b-loading>
     <section class="section">
       <div class="container">
-        <div class="timeline is-centered">
-          <template v-for="(value, date, index) in calendarItems">
-            <header :key="index" class="timeline-header">
-              <span class="tag is-large is-primary">
-                {{ date | futureDate }}
-              </span>
-            </header>
-            <div
-              v-for="(item, index) in value"
-              :key="date + index"
-              class="timeline-item"
-            >
-              <div class="timeline-marker"></div>
-              <div class="timeline-content" style="width: 100%">
-                <router-link :to="`/tv_shows/details/${item.id}`">
-                  <figure class="poster image">
-                    <img :src="getPoster(item.tmdb_details.id)" />
-                  </figure>
-                </router-link>
-              </div>
+        <div class="columns is-centered">
+          <div class="column is-6">
+            <div class="timeline is-centered">
+              <template v-for="(value, date, index) in calendarItems">
+                <header :key="index" class="timeline-header">
+                  <span class="tag is-large is-primary">
+                    {{ date | futureDate }}
+                  </span>
+                </header>
+                <div
+                  v-for="(item, index) in value"
+                  :key="date + index"
+                  class="timeline-item"
+                >
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content" style="width: 100%">
+                    <router-link :to="`/tv_shows/details/${item.id}`">
+                      <figure class="poster image">
+                        <img :src="getPoster(item.tmdb_details.id)" />
+                      </figure>
+                    </router-link>
+                  </div>
+                </div>
+              </template>
             </div>
-          </template>
+          </div>
         </div>
       </div>
     </section>
