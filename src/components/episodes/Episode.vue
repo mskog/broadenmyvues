@@ -45,7 +45,10 @@ export default {
         width: "auto",
         "background-size": "cover",
         "background-repeat": "none",
-        "background-image": `linear-gradient(to bottom, rgba(21,26,48,0.6), rgba(21,26,48,0.9)), url(${this.stillImage})`
+        "background-image": `linear-gradient(to bottom, rgba(21,26,48,0.6), rgba(21,26,48,0.9)), url(${this.$options.filters.thumb(
+          this.stillImage,
+          240
+        )})`
       };
     },
 

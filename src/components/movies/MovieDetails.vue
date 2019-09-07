@@ -24,7 +24,6 @@
         <b-icon pack="fas" icon="flag" size="is-small"></b-icon>
         {{ movie.language }}
       </div>
-      <hr />
       <div class="bottom">
         <div class="level is-mobile">
           <div class="level-item has-text-centered">
@@ -54,20 +53,6 @@
           </div>
         </div>
       </div>
-      <hr />
-      <div v-if="!downloaded" class="columns">
-        <div v-if="movie.best_release" class="column is-2">
-          <button @click="force" class="button is-fullwidth is-primary">
-            Force
-          </button>
-        </div>
-        <div class="column is-2">
-          <button @click="destroy" class="button is-fullwidth is-danger">
-            Remove
-          </button>
-        </div>
-        <div class="column"></div>
-      </div>
       <div class="synopsis">
         <h2 class="title is-size-4">Synopsis</h2>
         <p>{{ movie.overview }}</p>
@@ -83,6 +68,19 @@
             movie.download_at | timeAgo
           }}</span>
         </span>
+      </div>
+      <div v-if="!downloaded" class="columns">
+        <div v-if="movie.best_release" class="column is-2">
+          <button @click="force" class="button is-fullwidth is-primary">
+            Force
+          </button>
+        </div>
+        <div class="column is-2-desktop is-12-mobile">
+          <button @click="destroy" class="button is-fullwidth is-danger">
+            Remove
+          </button>
+        </div>
+        <div class="column"></div>
       </div>
     </div>
   </div>
@@ -169,7 +167,7 @@ hr {
 .top {
   margin-top: -60px;
   position: relative;
-  height: 50vh;
+  height: 66vh;
   @include mobile {
     height: 66vh;
   }
