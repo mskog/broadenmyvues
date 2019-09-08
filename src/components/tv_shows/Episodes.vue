@@ -52,5 +52,3 @@ export default {
   padding-right: 0 !important;
 }
 </style>
-
-
