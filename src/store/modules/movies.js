@@ -41,9 +41,8 @@ export default {
 
     refreshSingle(state, { movie }) {
       const index = state.items.findIndex(item => item.id == movie.id);
-      if (index == -1) {
-        Vue.set(state, "items", state.items.concat(movie));
-      } else {
+      movie.category = state.items[index].category;
+      if (index !== -1) {
         Vue.set(state.items, index, movie);
       }
     },
