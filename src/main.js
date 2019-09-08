@@ -25,6 +25,13 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+// Dirty fix for lazyload. Remove when updated
+Vue.use({
+  install() {
+    Vue.prototype.destroy = Vue.prototype.$destroy;
+  }
+});
+
 import VueLazyload from "vue-lazyload";
 Vue.use(VueLazyload, { lazyComponent: true });
 
