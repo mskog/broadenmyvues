@@ -11,7 +11,7 @@
   "dependencies": {
     "buefy": "^0.8.3",
     "bulma-timeline": "^3.0.4",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "javascript-time-ago": "^2.0.1",
     "lodash.groupby": "^4.6.0",
     "moment": "^2.24.0",
