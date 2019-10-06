@@ -124,7 +124,7 @@ export default {
       this.buttonSampleLoading = true;
       this.$store.dispatch("tv_shows_search/sample", this.ids.imdb).then(() => {
         this.buttonSampleLoading = false;
-        this.$snackbar.open(`TV Show ${this.title} sampled.`);
+        this.$buefy.snackbar.open(`TV Show ${this.title} sampled.`);
         this.$router.push("/tv_shows/details/" + this.ids.imdb);
       });
     },
