@@ -41,16 +41,26 @@
               <p class="heading is-size-6">Runtime</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
-            <div v-if="!watched">
-              <p class="title is-size-4">{{ rtCriticsRatingFormatted }}</p>
-              <p class="heading is-size-6">Rotten</p>
+          <template v-if="!watched">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ rtCriticsRatingFormatted }}</p>
+                <p class="heading is-size-6">Tomatometer</p>
+              </div>
             </div>
-            <div v-else>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ rtAudienceRatingFormatted }}</p>
+                <p class="heading is-size-6">Audience</p>
+              </div>
+            </div>
+          </template>
+          <template v-else class="level-item has-text-centered">
+            <div>
               <p class="title is-size-4">{{ movie.personal_rating }} / 10</p>
               <p class="heading is-size-6">Rating</p>
             </div>
-          </div>
+          </template>
         </div>
       </div>
       <div class="synopsis">
@@ -109,6 +119,13 @@ export default {
         return "?";
       } else {
         return this.movie.rt_critics_rating + "%";
+      }
+    },
+    rtAudienceRatingFormatted() {
+      if (this.movie.rt_audience_rating == undefined) {
+        return "?";
+      } else {
+        return this.movie.rt_audience_rating + "%";
       }
     },
     releaseYear() {
@@ -202,4 +219,3 @@ hr {
   padding-bottom: 50px;
 }
 </style>
-
