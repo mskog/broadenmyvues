@@ -9,7 +9,7 @@
     "deploy": "npm run build && s3_website push"
   },
   "dependencies": {
-    "buefy": "^0.8.3",
+    "buefy": "^0.8.6",
     "bulma-timeline": "^3.0.4",
     "eslint-plugin-prettier": "^3.1.0",
     "javascript-time-ago": "^2.0.1",
