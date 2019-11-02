@@ -99,6 +99,19 @@ a {
     max-lines: 1;
   }
 }
+
+.overview {
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.episode {
+  &:hover {
+    .overview {
+      opacity: 1;
+    }
+  }
+}
 </style>
 
 

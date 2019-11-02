@@ -11,86 +11,83 @@
             <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
           </a>
         </div>
-        <div class="movietitle">
-          <h1 class="title">
-            {{ movie.title }}
-          </h1>
-        </div>
       </div>
-      <div class="genres">
-        {{ movie.genres }}
-      </div>
-      <div class="language">
-        <b-icon pack="fas" icon="flag" size="is-small"></b-icon>
-        {{ movie.language }}
-      </div>
-      <div class="bottom">
-        <div class="level is-mobile">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">{{ releaseYear }}</p>
-              <p class="heading is-size-6">Released</p>
-            </div>
+      <div class="columns is-centered">
+        <div class="column is-6-desktop is-12-tablet">
+          <div class="movietitle">
+            <h1 class="title is-size-1">
+              {{ movie.title }}
+            </h1>
           </div>
+          <div class="level is-mobile">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ releaseYear }}</p>
+                <p class="heading is-size-6">Released</p>
+              </div>
+            </div>
 
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">
-                {{ movie.runtime }}
-              </p>
-              <p class="heading is-size-6">Runtime</p>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">
+                  {{ movie.runtime }}
+                </p>
+                <p class="heading is-size-6">Runtime</p>
+              </div>
+            </div>
+            <div v-if="!watched">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="title is-size-4">
+                    {{ rtCriticsRatingFormatted }}
+                  </p>
+                  <p class="heading is-size-6">Tomatometer</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="title is-size-4">
+                    {{ rtAudienceRatingFormatted }}
+                  </p>
+                  <p class="heading is-size-6">Audience</p>
+                </div>
+              </div>
+            </div>
+            <div v-else class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ movie.personal_rating }} / 10</p>
+                <p class="heading is-size-6">Rating</p>
+              </div>
             </div>
           </div>
-          <template v-if="!watched">
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title is-size-4">{{ rtCriticsRatingFormatted }}</p>
-                <p class="heading is-size-6">Tomatometer</p>
-              </div>
+          <div class="synopsis is-size-5">
+            <p>{{ movie.overview }}</p>
+          </div>
+          <div v-if="movie.best_release && !downloaded" class="synopsis">
+            <h2 class="title is-size-4">Download</h2>
+            <p class="has-text-weight-bold">
+              {{ movie.best_release.joined_attributes }}
+            </p>
+            <span class="is-size-6"
+              >Will download
+              <span class="has-text-weight-bold">{{
+                movie.download_at | timeAgo
+              }}</span>
+            </span>
+          </div>
+          <div v-if="!downloaded" class="columns">
+            <div v-if="movie.best_release" class="column is-2">
+              <button @click="force" class="button is-fullwidth is-primary">
+                Force
+              </button>
             </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title is-size-4">{{ rtAudienceRatingFormatted }}</p>
-                <p class="heading is-size-6">Audience</p>
-              </div>
+            <div class="column is-2-desktop is-12-mobile">
+              <button @click="destroy" class="button is-fullwidth is-danger">
+                Remove
+              </button>
             </div>
-          </template>
-          <template v-else class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">{{ movie.personal_rating }} / 10</p>
-              <p class="heading is-size-6">Rating</p>
-            </div>
-          </template>
+          </div>
         </div>
-      </div>
-      <div class="synopsis">
-        <h2 class="title is-size-4">Synopsis</h2>
-        <p>{{ movie.overview }}</p>
-      </div>
-      <div v-if="movie.best_release && !downloaded" class="synopsis">
-        <h2 class="title is-size-4">Download</h2>
-        <p class="has-text-weight-bold">
-          {{ movie.best_release.joined_attributes }}
-        </p>
-        <span class="is-size-6"
-          >Will download
-          <span class="has-text-weight-bold">{{
-            movie.download_at | timeAgo
-          }}</span>
-        </span>
-      </div>
-      <div v-if="!downloaded" class="columns">
-        <div v-if="movie.best_release" class="column is-2">
-          <button @click="force" class="button is-fullwidth is-primary">
-            Force
-          </button>
-        </div>
-        <div class="column is-2-desktop is-12-mobile">
-          <button @click="destroy" class="button is-fullwidth is-danger">
-            Remove
-          </button>
-        </div>
-        <div class="column"></div>
       </div>
     </div>
   </div>
@@ -185,18 +182,10 @@ hr {
   margin-top: -60px;
   position: relative;
   height: 66vh;
-  @include mobile {
-    height: 66vh;
-  }
   background-size: cover;
-  background-position: center;
+  background-position: 25% 25%;
   padding-left: 2em;
   padding-right: 2em;
-
-  .movietitle {
-    position: absolute;
-    bottom: 25px;
-  }
 
   .backbutton {
     position: fixed;
@@ -215,6 +204,11 @@ hr {
     }
   }
 }
+
+.movietitle {
+  transform: translateY(-5rem);
+}
+
 .synopsis {
   padding-bottom: 50px;
 }

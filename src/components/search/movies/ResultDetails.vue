@@ -10,35 +10,33 @@
             <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
           </a>
         </div>
-        <div class="movietitle">
-          <h1 class="title">
-            {{ title }}
-          </h1>
-        </div>
       </div>
-      <hr />
-      <div class="bottom">
-        <div class="level is-mobile">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">{{ year }}</p>
-              <p class="heading is-size-6">Released</p>
+      <div class="columns is-centered">
+        <div class="column is-6-desktop is-12-tablet">
+          <div class="movietitle">
+            <h1 class="title is-size-1">{{ title }}</h1>
+          </div>
+          <div class="level is-mobile">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ year }}</p>
+                <p class="heading is-size-6">Released</p>
+              </div>
             </div>
           </div>
+          <div class="synopsis">
+            <h2 class="title is-size-4">Synopsis</h2>
+            <p>{{ overview }}</p>
+          </div>
+          <div v-if="releasesLoaded">
+            <Release
+              v-bind:has_killer_release="has_killer_release"
+              v-bind:has_acceptable_release="has_acceptable_release"
+              v-bind:best_release="best_release"
+              v-bind:imdb_id="imdb_id"
+            />
+          </div>
         </div>
-      </div>
-      <hr />
-      <div class="synopsis">
-        <h2 class="title is-size-4">Synopsis</h2>
-        <p>{{ overview }}</p>
-      </div>
-      <div v-if="releasesLoaded">
-        <Release
-          v-bind:has_killer_release="has_killer_release"
-          v-bind:has_acceptable_release="has_acceptable_release"
-          v-bind:best_release="best_release"
-          v-bind:imdb_id="imdb_id"
-        />
       </div>
     </div>
   </div>
@@ -123,10 +121,6 @@ hr {
   padding-left: 2em;
   padding-right: 2em;
 
-  .movietitle {
-    position: absolute;
-    bottom: 25px;
-  }
   .backbutton {
     position: fixed;
     top: 20px;
@@ -143,6 +137,10 @@ hr {
       text-decoration: inherit;
     }
   }
+}
+
+.movietitle {
+  transform: translateY(-5rem);
 }
 
 .synopsis {

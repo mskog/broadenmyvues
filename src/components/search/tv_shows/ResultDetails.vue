@@ -10,54 +10,53 @@
             <b-icon pack="fab" icon="imdb" size="is-medium"></b-icon>
           </a>
         </div>
-        <div class="movietitle">
-          <h1 class="title">
-            {{ title }}
-          </h1>
-          <h2 class="subtitle ratings">
-            <Ratings :rating="ratingFormatted" />
-          </h2>
-        </div>
       </div>
-      <hr />
-      <div class="bottom">
-        <div class="level is-mobile">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">{{ year }}</p>
-              <p class="heading is-size-6">First aired</p>
+      <div class="columns is-centered">
+        <div class="column is-6-desktop is-12-tablet">
+          <div class="movietitle">
+            <h1 class="title is-size-1">
+              {{ title }}
+            </h1>
+            <h2 class="subtitle ratings">
+              <Ratings :rating="ratingFormatted" />
+            </h2>
+          </div>
+          <div class="level is-mobile">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ year }}</p>
+                <p class="heading is-size-6">First aired</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ status | capitalize }}</p>
+                <p class="heading is-size-6">Status</p>
+              </div>
             </div>
           </div>
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">{{ status | capitalize }}</p>
-              <p class="heading is-size-6">Status</p>
-            </div>
+          <div class="synopsis">
+            <p>{{ overview }}</p>
+          </div>
+          <div class="column">
+            <b-button
+              @click="sample"
+              class="button is-fullwidth is-success"
+              :loading="buttonSampleLoading"
+            >
+              Sample
+            </b-button>
+          </div>
+          <div class="column">
+            <b-button
+              @click="collect"
+              class="button is-fullwidth is-primary"
+              :loading="buttonCollectLoading"
+            >
+              Collect
+            </b-button>
           </div>
         </div>
-      </div>
-      <hr />
-      <div class="synopsis">
-        <h2 class="title is-size-4">Synopsis</h2>
-        <p>{{ overview }}</p>
-      </div>
-      <div class="column">
-        <b-button
-          @click="sample"
-          class="button is-fullwidth is-success"
-          :loading="buttonSampleLoading"
-        >
-          Sample
-        </b-button>
-      </div>
-      <div class="column">
-        <b-button
-          @click="collect"
-          class="button is-fullwidth is-primary"
-          :loading="buttonCollectLoading"
-        >
-          Collect
-        </b-button>
       </div>
     </div>
   </div>
@@ -160,10 +159,6 @@ hr  {
   padding-left: 2em;
   padding-right: 2em;
 
-  .movietitle {
-    position: absolute;
-    bottom: 25px;
-  }
   .backbutton {
     position: fixed;
     top: 20px;
@@ -189,6 +184,10 @@ hr  {
 h2.subtitle.ratings {
   font-size: 12px;
   color: orange;
+}
+
+.movietitle {
+  transform: translateY(-5rem);
 }
 </style>
 

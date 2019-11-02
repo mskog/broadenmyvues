@@ -12,78 +12,78 @@
             </a>
           </div>
         </div>
-        <div class="tv_show_title">
-          <h1 class="title">
-            {{ name }}
-          </h1>
-        </div>
       </div>
-      <div class="language">
-        <b-icon pack="fas" icon="flag" size="is-small"></b-icon>
-        {{ tmdb_details.origin_country[0] }}
-      </div>
-      <hr />
-      <div class="bottom">
-        <div class="level is-mobile">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">
-                {{ tmdb_details.first_air_date }}
-              </p>
-              <p class="heading is-size-6">First aired</p>
-            </div>
+      <div class="columns is-centered">
+        <div class="column is-6-desktop is-12-tablet">
+          <div class="tv_show_title">
+            <h1 class="title is-size-1">
+              {{ name }}
+            </h1>
           </div>
 
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="title is-size-4">
-                {{ trakt_details.status | capitalize }}
-              </p>
-              <p class="heading is-size-6">Status</p>
+          <div class="level is-mobile">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">
+                  {{ tmdb_details.first_air_date }}
+                </p>
+                <p class="heading is-size-6">First aired</p>
+              </div>
+            </div>
+
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">
+                  {{ trakt_details.status | capitalize }}
+                </p>
+                <p class="heading is-size-6">Status</p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <hr />
-      <div class="synopsis">
-        <h2 class="title is-size-4">Synopsis</h2>
-        <p>{{ tmdb_details.overview }}</p>
-      </div>
-      <section class="action_buttons">
-        <div class="row">
-          <div class="columns">
-            <div v-if="!watching" class="column">
-              <b-button
-                @click="isWatching(id)"
-                class="button is-fullwidth is-primary"
-                :loading="buttonWatchingLoading"
-              >
-                Watch
-              </b-button>
-            </div>
-            <div v-if="watching" class="column">
-              <b-button
-                @click="notWatching(id)"
-                class="button is-fullwidth is-danger"
-                :loading="buttonNotWatchingLoading"
-              >
-                Unwatch
-              </b-button>
-            </div>
-            <div v-if="!collected" class="column">
-              <b-button
-                @click="collect(id)"
-                class="button is-fullwidth is-primary"
-                :loading="buttonCollectLoading"
-              >
-                Collect
-              </b-button>
-            </div>
+          <div class="synopsis is-size-5">
+            <p>{{ tmdb_details.overview }}</p>
           </div>
+          <section class="action_buttons">
+            <div class="row">
+              <div class="columns">
+                <div v-if="!watching" class="column">
+                  <b-button
+                    @click="isWatching(id)"
+                    class="button is-fullwidth is-primary"
+                    :loading="buttonWatchingLoading"
+                  >
+                    Watch
+                  </b-button>
+                </div>
+                <div v-if="watching" class="column">
+                  <b-button
+                    @click="notWatching(id)"
+                    class="button is-fullwidth is-danger"
+                    :loading="buttonNotWatchingLoading"
+                  >
+                    Unwatch
+                  </b-button>
+                </div>
+                <div v-if="!collected" class="column">
+                  <b-button
+                    @click="collect(id)"
+                    class="button is-fullwidth is-primary"
+                    :loading="buttonCollectLoading"
+                  >
+                    Collect
+                  </b-button>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
       <section>
-        <Episodes :episodes="released_episodes" />
+        <div class="columns is-centered">
+          <div class="column is-10-desktop is-12-tablet">
+            <Episodes :episodes="released_episodes" />
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -191,10 +191,6 @@ hr {
   padding-left: 2rem;
   padding-right: 2rem;
 
-  .tv_show_title {
-    position: absolute;
-    bottom: 25px;
-  }
   .backbutton {
     position: fixed;
     top: 20px;
@@ -211,6 +207,10 @@ hr {
       text-decoration: inherit;
     }
   }
+}
+
+.tv_show_title {
+  transform: translateY(-5rem);
 }
 
 .synopsis {

@@ -7,38 +7,38 @@
           <div class="backbutton is-hidden-desktop" @click="goBack">
             <b-icon pack="fas" icon="arrow-left" size="is-medium"></b-icon>
           </div>
-          <div class="episodetitle">
-            <router-link :to="`/tv_shows/details/${episode.tv_show_id}`">
-              <h1 class="title">
-                {{ episode.name }}
-              </h1>
-            </router-link>
-            <h2 class="subtitle">
-              {{ episode.tmdb_details.name }}
-            </h2>
-          </div>
         </div>
-        <hr />
-        <div class="bottom">
-          <div class="level is-mobile">
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title is-size-4">{{ episode | seasonEpisode }}</p>
-                <p class="heading is-size-6">Episode</p>
+
+        <div class="columns is-centered">
+          <div class="column is-6-desktop is-12-tablet">
+            <div class="episodetitle">
+              <router-link :to="`/tv_shows/details/${episode.tv_show_id}`">
+                <h1 class="title">
+                  {{ episode.name }}
+                </h1>
+              </router-link>
+              <h2 class="subtitle">
+                {{ episode.tmdb_details.name }}
+              </h2>
+            </div>
+            <div class="level is-mobile">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="title is-size-4">{{ episode | seasonEpisode }}</p>
+                  <p class="heading is-size-6">Episode</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="title is-size-4">{{ episode.air_date }}</p>
+                  <p class="heading is-size-6">Aired</p>
+                </div>
               </div>
             </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title is-size-4">{{ episode.air_date }}</p>
-                <p class="heading is-size-6">Aired</p>
-              </div>
+            <div v-if="episode.tmdb_details.overview" class="synopsis">
+              <p class="is-size-5">{{ episode.tmdb_details.overview }}</p>
             </div>
           </div>
-        </div>
-        <hr />
-        <div v-if="episode.tmdb_details.overview" class="synopsis">
-          <h2 class="title is-size-4">Synopsis</h2>
-          <p>{{ episode.tmdb_details.overview }}</p>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@ hr {
 .top {
   margin-top: -60px;
   position: relative;
-  height: 50vh;
+  height: 66vh;
   @include mobile {
     height: 33vh;
   }
@@ -109,10 +109,6 @@ hr {
   padding-left: 2em;
   padding-right: 2em;
 
-  .episodetitle {
-    position: absolute;
-    bottom: 25px;
-  }
   .backbutton {
     position: fixed;
     top: 1rem;
@@ -123,6 +119,9 @@ hr {
       text-decoration: inherit;
     }
   }
+}
+.episodetitle {
+  transform: translateY(-5rem);
 }
 
 .synopsis {

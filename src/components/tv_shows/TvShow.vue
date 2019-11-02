@@ -16,7 +16,7 @@
     </div>
     <div class="column title">
       <router-link :to="`/tv_shows/details/${tv_show.id}`">
-        <h2 class="is-size-5 title">{{ tv_show.name }}</h2>
+        <h2 class="is-size-4 title">{{ tv_show.name }}</h2>
         <h2 class="subtitle ratings">
           <Ratings :rating="rating" />
         </h2>

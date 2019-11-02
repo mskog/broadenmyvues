@@ -43,6 +43,7 @@ nav {
 
   a:hover {
     background-color: lighten($background-risen, 20%);
+    text-decoration: underline;
   }
 
   span.icon {

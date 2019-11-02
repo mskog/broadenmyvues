@@ -21,7 +21,7 @@
     </div>
     <div class="column title">
       <router-link :to="`/movies/details/${movie.id}`">
-        <h2 class="is-size-5 title">{{ movie.title }}</h2>
+        <h2 class="is-size-4 title">{{ movie.title }}</h2>
       </router-link>
       <h2 class="subtitle ratings">
         <Ratings :rating="movie.rt_critics_rating" />
