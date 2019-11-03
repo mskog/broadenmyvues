@@ -15,7 +15,7 @@
           {{ episode.episode }}. {{ episode.tmdb_details.name | truncate(30) }}
         </h2>
       </router-link>
-      <div class="overview is-size-6-mobile">{{ overview | truncate(75) }}</div>
+      <div class="overview is-size-7-mobile">{{ overview | truncate(75) }}</div>
     </div>
   </div>
 </template>

@@ -13,7 +13,7 @@
           <div class="column is-6-desktop is-12-tablet">
             <div class="episodetitle">
               <router-link :to="`/tv_shows/details/${episode.tv_show_id}`">
-                <h1 class="title">
+                <h1 class="title is-size-2">
                   {{ episode.name }}
                 </h1>
               </router-link>
@@ -102,7 +102,7 @@ hr {
   position: relative;
   height: 66vh;
   @include mobile {
-    height: 33vh;
+    height: 66vh;
   }
   background-size: cover;
   background-position: center;
@@ -121,7 +121,7 @@ hr {
   }
 }
 .episodetitle {
-  transform: translateY(-5rem);
+  transform: translateY(-3rem);
 }
 
 .synopsis {

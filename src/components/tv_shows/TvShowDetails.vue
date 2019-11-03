@@ -16,7 +16,7 @@
       <div class="columns is-centered">
         <div class="column is-6-desktop is-12-tablet">
           <div class="tv_show_title">
-            <h1 class="title is-size-1">
+            <h1 class="title is-size-2">
               {{ name }}
             </h1>
           </div>
