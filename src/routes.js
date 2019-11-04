@@ -64,8 +64,9 @@ export default [
   },
   {
     name: "tv_shows",
-    path: "/tv_shows",
-    component: TvShows
+    path: "/tv_shows/:category?",
+    component: TvShows,
+    props: true
   },
   {
     name: "tv_show_details",

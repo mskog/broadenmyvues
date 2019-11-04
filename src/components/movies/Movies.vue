@@ -56,9 +56,8 @@ export default {
     },
 
     infiniteHandler($state) {
-      this.page = this.page + 1;
       this.infiniteState = $state;
-      this.loadMore(this.category, this.page);
+      this.loadMore(this.category);
     }
   },
 
