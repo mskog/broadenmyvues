@@ -53,12 +53,12 @@
                 </div>
               </div>
             </template>
-            <template v-else class="level-item has-text-centered">
+            <div v-else class="level-item has-text-centered">
               <div>
                 <p class="title is-size-4">{{ movie.personal_rating }} / 10</p>
                 <p class="heading is-size-6">Rating</p>
               </div>
-            </template>
+            </div>
           </div>
           <div class="synopsis is-size-5">
             <p>{{ movie.overview }}</p>
