@@ -35,7 +35,7 @@
                 <p class="heading is-size-6">Runtime</p>
               </div>
             </div>
-            <div v-if="!watched">
+            <template v-if="!watched">
               <div class="level-item has-text-centered">
                 <div>
                   <p class="title is-size-4">
@@ -52,13 +52,13 @@
                   <p class="heading is-size-6">Audience</p>
                 </div>
               </div>
-            </div>
-            <div v-else class="level-item has-text-centered">
+            </template>
+            <template v-else class="level-item has-text-centered">
               <div>
                 <p class="title is-size-4">{{ movie.personal_rating }} / 10</p>
                 <p class="heading is-size-6">Rating</p>
               </div>
-            </div>
+            </template>
           </div>
           <div class="synopsis is-size-5">
             <p>{{ movie.overview }}</p>
