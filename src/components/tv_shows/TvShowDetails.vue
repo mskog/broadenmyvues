@@ -39,6 +39,12 @@
                 <p class="heading is-size-6">Status</p>
               </div>
             </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="title is-size-4">{{ rating }}%</p>
+                <p class="heading is-size-6">Rating</p>
+              </div>
+            </div>
           </div>
           <div class="synopsis is-size-5">
             <p>{{ tmdb_details.overview }}</p>
@@ -127,6 +133,11 @@ export default {
     imdbUrl() {
       return `https://www.imdb.com/title/${this.imdb_id}`;
     },
+
+    rating() {
+      return Math.round(this.tmdb_details.vote_average * 10);
+    },
+
     ...mapGetters("tv_shows", ["getTvShow, getPoster"])
   },
   methods: {
