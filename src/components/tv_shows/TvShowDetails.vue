@@ -189,10 +189,6 @@ section.action_buttons {
   margin-right: 2rem;
 }
 
-hr {
-  border-top: 2px solid $grey-darker;
-}
-
 .top {
   margin-top: -60px;
   position: relative;
