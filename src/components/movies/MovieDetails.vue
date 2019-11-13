@@ -19,7 +19,7 @@
               {{ movie.title }}
             </h1>
           </div>
-          <div class="level is-mobile">
+          <div class="level">
             <div class="level-item has-text-centered">
               <div>
                 <p class="title is-size-4">{{ releaseYear }}</p>
