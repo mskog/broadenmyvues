@@ -25,7 +25,7 @@ export default [
     name: "search",
     path: "/search",
     component: Search,
-    props: true
+    props: route => ({ q: route.query.q })
   },
   {
     name: "search_movies_details",

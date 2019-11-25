@@ -23,10 +23,49 @@
             <span>Calendar</span>
           </router-link>
         </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <b-field>
+              <b-input
+                placeholder="Title, imdb_id, imdb_url, etc..."
+                expanded
+                v-model="query"
+                @keyup.native.enter="search"
+                @focus="clear"
+              ></b-input>
+              <p class="control">
+                <button class="button is-primary" @click="search">
+                  <b-icon pack="fas" icon="search" />
+                </button>
+              </p>
+            </b-field>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      query: ""
+    };
+  },
+
+  methods: {
+    clear() {
+      this.query = "";
+    },
+
+    search() {
+      this.$router.push({ name: "search", query: { q: this.query } });
+      this.clear();
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 @import "../assets/css/variables.scss";

@@ -6,6 +6,7 @@
         <div class="column is-6-desktop">
           <b-field>
             <b-input
+              size="is-medium"
               placeholder="Title, imdb_id, imdb_url, etc..."
               expanded
               v-model="query"
@@ -13,7 +14,7 @@
               @focus="clear"
             ></b-input>
             <p class="control">
-              <button class="button is-primary" @click="search">
+              <button class="button is-primary is-medium" @click="search">
                 <b-icon pack="fas" icon="search" />
               </button>
             </p>
@@ -46,6 +47,9 @@ export default {
     MovieResults,
     TvShowResults
   },
+
+  props: ["q"],
+
   data() {
     return {
       query: "",
@@ -81,6 +85,13 @@ export default {
         this.loading = false;
         this.resultsLoaded = true;
       });
+    }
+  },
+
+  created() {
+    if (this.q) {
+      this.query = this.q;
+      this.search();
     }
   },
 
