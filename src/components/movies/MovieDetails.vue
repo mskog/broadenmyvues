@@ -76,12 +76,12 @@
             </span>
           </div>
           <div v-if="!downloaded" class="columns">
-            <div v-if="movie.best_release" class="column is-2">
+            <div v-if="movie.best_release" class="column is-6">
               <button @click="force" class="button is-fullwidth is-primary">
                 Force
               </button>
             </div>
-            <div class="column is-2-desktop is-12-mobile">
+            <div class="column is-6-desktop is-12-mobile">
               <button @click="destroy" class="button is-fullwidth is-danger">
                 Remove
               </button>
